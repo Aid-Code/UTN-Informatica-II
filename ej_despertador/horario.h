@@ -1,7 +1,7 @@
 #ifndef HORARIO_H
 #define HORARIO_H
 
-class horario
+class Horario
 {
 private:
     int h;
@@ -9,10 +9,10 @@ private:
     int s;
 
 public:
-    horario();
-    horario(horario &hr);
-    horario(char*);
-    horario(int h, int m, int s);
+    Horario();
+    Horario(Horario &hr);
+    Horario(char*);
+    Horario(int h, int m, int s);
 
     int getHora();
     int getMin();
@@ -22,8 +22,8 @@ public:
     void setMin(int min);
     void setSec(int sec);
 
-    horario& operator= (const horario&);
-    horario operator+ (horario&);
+    Horario& operator= (const Horario&);
+    Horario operator+ (Horario&);
 };
 
 #endif // HORARIO_H

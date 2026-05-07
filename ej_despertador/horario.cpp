@@ -1,15 +1,15 @@
 #include "horario.h"
 
-horario::horario(int h, int m, int s):h(h),m(m),s(s){}
+Horario::Horario(int h, int m, int s):h(h),m(m),s(s){}
 
-horario::horario(horario &hr)
+Horario::Horario(Horario &hr)
 {
     h = hr.h;
     m = hr.m;
     s = hr.s;
 }
 
-horario::horario(char* hora)
+Horario::Horario(char* hora)
 {
     int i = 0;
 
@@ -47,15 +47,15 @@ horario::horario(char* hora)
     s = s+(hora[i]-'0');
 }
 
-int horario::getHora(){ return h; }
-int horario::getMin(){ return m; }
-int horario::getSec(){ return s; }
+int Horario::getHora(){ return h; }
+int Horario::getMin(){ return m; }
+int Horario::getSec(){ return s; }
 
-void horario::setHora(int hora){ h = hora; }
-void horario::setMin(int min){ m = min; }
-void horario::setSec(int sec){ s = sec; }
+void Horario::setHora(int hora){ h = hora; }
+void Horario::setMin(int min){ m = min; }
+void Horario::setSec(int sec){ s = sec; }
 
-horario& horario::operator= (const horario& hor)
+Horario& Horario::operator= (const Horario& hor)
 {
     h = hor.h;
     m = hor.m;
@@ -64,7 +64,7 @@ horario& horario::operator= (const horario& hor)
     return (*this);
 }
 
-horario horario::operator+ (horario& r)
+Horario Horario::operator+ (Horario& r)
 {
     s += r.s;
     if(s >= 60)

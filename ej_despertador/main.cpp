@@ -1,13 +1,14 @@
 #include <QCoreApplication>
 #include <iostream>
 #include "horario.h"
+#include "despertador.h"
 
 using namespace std;
 
 int main()
 {
-    horario h1(23,30,00);
-    horario retraso("1:40:00");
+    Horario h1(23,30,00);
+    Horario retraso("1:40:00");
 
     h1 = h1 + retraso;
 
