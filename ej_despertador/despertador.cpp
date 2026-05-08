@@ -25,4 +25,5 @@ bool Despertador::vencio(Despertador &dp)
 void Despertador::aplazar(int ap)
 {
     aplazo += ap;
+    Horario::setMin(getMin()+aplazo);
 }

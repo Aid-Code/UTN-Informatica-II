@@ -57,7 +57,7 @@ void Horario::setHora(int hora){ h = hora; }
 void Horario::setMin(int min)
 {
     m = min;
-    if (m >= 60)
+    if (m == 60)
     {
         h++;
         m = 0;
@@ -66,7 +66,7 @@ void Horario::setMin(int min)
 void Horario::setSec(int sec)
 {
     s = sec;
-    if (s >= 60)
+    if (s == 60)
     {
         m++;
         s = 0;
