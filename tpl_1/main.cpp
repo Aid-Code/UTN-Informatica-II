@@ -14,24 +14,30 @@ int main()
     Lista l1;
 
     l1 += p1;
+    l1 += p2;
 
-    cout<<l1[0];
+    cout<<l1[1];
 
-    l1 += f4;
+    l1 += f3;
+    l1 -= p2;
 
     cout<<l1[1];
 
 
-    /*f1 = f3;
+    f1 = f3;
+    cout<<f1;
+    cout<<f3;
+
     if (f1 == f3) cout<<"YEI :D"<<endl;
     else cout<<"OUH :("<<endl;
 
     f1.setPrecio(3400);
 
     cout<<f1;
+    cout<<f3;
 
     if (f1 == f3) cout<<"YEI"<<endl;
-    else cout<<"OUH :("<<endl;*/
+    else cout<<"OUH :("<<endl;
 
 
 }
