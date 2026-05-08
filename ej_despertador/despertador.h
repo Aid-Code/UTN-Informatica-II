@@ -17,10 +17,8 @@ public:
     void setAplazo(int ap);
     int getAplazo();
 
-    bool vencio();
-    void aplazar();
-
-    int operator+= (int ap);
+    bool vencio(Despertador &dp);
+    void aplazar(int ap);
 };
 
 #endif // DESPERTADOR_H

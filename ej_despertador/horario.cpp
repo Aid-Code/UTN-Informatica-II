@@ -1,5 +1,7 @@
 #include "horario.h"
 
+Horario::Horario(){}
+
 Horario::Horario(int h, int m, int s):h(h),m(m),s(s){}
 
 Horario::Horario(Horario &hr)
@@ -52,8 +54,24 @@ int Horario::getMin(){ return m; }
 int Horario::getSec(){ return s; }
 
 void Horario::setHora(int hora){ h = hora; }
-void Horario::setMin(int min){ m = min; }
-void Horario::setSec(int sec){ s = sec; }
+void Horario::setMin(int min)
+{
+    m = min;
+    if (m >= 60)
+    {
+        h++;
+        m = 0;
+    }
+}
+void Horario::setSec(int sec)
+{
+    s = sec;
+    if (s >= 60)
+    {
+        m++;
+        s = 0;
+    }
+}
 
 Horario& Horario::operator= (const Horario& hor)
 {

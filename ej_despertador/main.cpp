@@ -1,16 +1,22 @@
 #include <QCoreApplication>
 #include <iostream>
-#include "horario.h"
 #include "despertador.h"
 
 using namespace std;
 
 int main()
 {
-    Horario h1(23,30,00);
-    Horario retraso("1:40:00");
+    Despertador d1(0, 10, 30, 58);
+    Despertador alarma(0,10,35,0);
 
-    h1 = h1 + retraso;
+    while (!d1.vencio(alarma))
+    {
+        d1.setSec(d1.getSec()+1);
+        cout<<"Hora: "<<d1.getHora()<<endl<<"Minutos: "<<d1.getMin()<<endl<<"Segundos: "<<d1.getSec()<<endl;
+    }
 
-    cout<<"Hora: "<<h1.getHora()<<endl<<"Minutos: "<<h1.getMin()<<endl<<"Segundos: "<<h1.getSec()<<endl;
+    d1.aplazar(5);
+    cout<<"Hora: "<<d1.getHora()<<endl<<"Minutos: "<<d1.getMin()<<endl<<"Segundos: "<<d1.getSec()<<endl<<"Aplazo:"<<d1.getAplazo()<<endl;
+
+    return 0;
 }

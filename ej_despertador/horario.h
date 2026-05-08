@@ -3,7 +3,7 @@
 
 class Horario
 {
-private:
+protected:
     int h;
     int m;
     int s;

@@ -12,12 +12,17 @@ void Despertador::setAplazo(int ap){ aplazo = ap; }
 
 int Despertador::getAplazo(){ return aplazo; }
 
-bool vencio();
-void aplazar();
-
-/*int Despertador::operator+= (int ap, int b)
+bool Despertador::vencio(Despertador &dp)
 {
-    ap = ap + b;
+    bool vencio = false;
+    if (h > dp.h || m > dp.m)
+        vencio = true;
+    else vencio = false;
 
-    return ap;
-}*/
+    return vencio;
+}
+
+void Despertador::aplazar(int ap)
+{
+    aplazo += ap;
+}
