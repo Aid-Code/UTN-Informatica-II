@@ -1,16 +1,21 @@
 #include <cr_section_macros.h>
 #include "Init.h"
+#include "gpio.h"
 
 
 int main(void)
 {
 	InitHw();
-	unsigned int *d_reg;
-	d_reg = (unsigned int *) 0xA0002104;
+
+	gpio led(1, 1, gpio::SALIDA, gpio::HIGH);
+	setPin(gpio::LOW);
+
+	int i = 0;
 
     while(1)
     {
-    	*d_reg &= ~0x002;
+    	if (i == 15000)
+
     }
 
     return 0 ;

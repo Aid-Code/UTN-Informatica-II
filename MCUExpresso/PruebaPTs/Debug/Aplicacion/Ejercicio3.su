@@ -1,0 +1,6 @@
+../Aplicacion/Ejercicio3.cpp:41:5:int main()	32	static
+../Aplicacion/Ejercicio3.cpp:69:6:void btn_handler()	8	static
+../Aplicacion/Ejercicio3.cpp:77:6:void frecuencias()	8	static
+../Aplicacion/Ejercicio3.cpp:83:6:void contador()	8	static
+../Aplicacion/Ejercicio3.cpp:86:1:void __static_initialization_and_destruction_0()	16	static
+../Aplicacion/Ejercicio3.cpp:86:1:cpp)	8	static

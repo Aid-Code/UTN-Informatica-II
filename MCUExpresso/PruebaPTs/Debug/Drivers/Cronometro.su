@@ -1,0 +1,6 @@
+../Drivers/Cronometro.cpp:11:1:Cronometro::Cronometro()	16	static
+../Drivers/Cronometro.cpp:19:6:void Cronometro::start()	16	static
+../Drivers/Cronometro.cpp:24:6:void Cronometro::stop()	16	static
+../Drivers/Cronometro.cpp:30:6:void Cronometro::pause()	16	static
+../Drivers/Cronometro.cpp:35:10:uint32_t Cronometro::getTime()	16	static
+../Drivers/Cronometro.cpp:40:6:virtual void Cronometro::handler()	16	static
