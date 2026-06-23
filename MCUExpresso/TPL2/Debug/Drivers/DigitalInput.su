@@ -1,0 +1,3 @@
+../Drivers/DigitalInput.cpp:10:1:DigitalInput::DigitalInput(uint8_t, uint8_t, uint8_t)	32	static
+../Drivers/DigitalInput.cpp:15:6:virtual void DigitalInput::handler()	32	static
+../Drivers/DigitalInput.cpp:36:6:bool DigitalInput::getKey()	16	static

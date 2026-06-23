@@ -1,0 +1,2 @@
+../Drivers/PerifericoTemporizado.cpp:13:1:PerifericoTemporizado::PerifericoTemporizado(void (*)())	24	static
+../Drivers/PerifericoTemporizado.cpp:31:1:PerifericoTemporizado::~PerifericoTemporizado()	32	static
