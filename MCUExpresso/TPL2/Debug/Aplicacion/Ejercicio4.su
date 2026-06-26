@@ -1,7 +1,0 @@
-../Aplicacion/Ejercicio4.cpp:40:5:int main()	8	static
-../Aplicacion/Ejercicio4.cpp:56:6:void prender_led()	8	static
-../Aplicacion/Ejercicio4.cpp:63:6:void apagar_led()	8	static
-../Aplicacion/Ejercicio4.cpp:70:6:void contador_ticks()	8	static
-../Aplicacion/Ejercicio4.cpp:76:6:void btn_handler_desc()	8	static
-../Aplicacion/Ejercicio4.cpp:83:1:void __static_initialization_and_destruction_0()	16	static
-../Aplicacion/Ejercicio4.cpp:83:1:cpp)	8	static

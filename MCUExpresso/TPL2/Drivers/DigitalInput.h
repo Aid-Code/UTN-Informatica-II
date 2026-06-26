@@ -2,7 +2,7 @@
  * DigitalInput.h
  *
  *  Created on: 12 jun. 2026
- *      Author: abril
+ *      Author: Aiden
  */
 
 #ifndef DIGITALINPUT_H_

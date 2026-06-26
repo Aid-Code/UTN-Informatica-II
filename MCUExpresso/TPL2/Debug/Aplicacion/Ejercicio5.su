@@ -1,0 +1,5 @@
+../Aplicacion/Ejercicio5.cpp:28:5:int main()	8	static
+../Aplicacion/Ejercicio5.cpp:41:6:void btn_handler_desc()	8	static
+C:\Users\abril\OneDrive\Documentos\GitHub\UTN-Informatica-II\MCUExpresso\TPL2\Drivers/PWM.h:14:7:PWM::~PWM()	16	static
+../Aplicacion/Ejercicio5.cpp:45:1:void __static_initialization_and_destruction_0()	16	static
+../Aplicacion/Ejercicio5.cpp:45:1:cpp)	8	static

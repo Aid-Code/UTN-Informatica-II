@@ -1,0 +1,6 @@
+../Drivers/PWM.cpp:10:1:PWM::PWM(uint8_t, uint8_t, uint32_t, uint32_t)	40	static
+../Drivers/PWM.cpp:15:6:void PWM::encenderPulso()	16	static
+../Drivers/PWM.cpp:20:6:void PWM::apagarPulso()	16	static
+../Drivers/PWM.cpp:26:6:void PWM::setDuty(uint32_t)	16	static
+../Drivers/PWM.cpp:31:6:void PWM::setPeriodo(uint32_t)	16	static
+../Drivers/PWM.cpp:36:6:virtual void PWM::handler()	16	static
