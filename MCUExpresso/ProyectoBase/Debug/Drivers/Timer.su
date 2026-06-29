@@ -1,0 +1,6 @@
+../Drivers/Timer.cpp:13:1:Timer::Timer(uint32_t, void (*)())	32	static
+../Drivers/Timer.cpp:33:1:Timer::~Timer()	32	static
+../Drivers/Timer.cpp:53:6:void Timer::start()	16	static
+../Drivers/Timer.cpp:59:6:void Timer::stop()	16	static
+../Drivers/Timer.cpp:64:6:void Timer::handler()	16	static
+../Drivers/Timer.cpp:74:6:void Timer::setTiempo(uint32_t)	16	static

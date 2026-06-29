@@ -1,2 +1,0 @@
-../Firmware/Systick.cpp:11:6:void InitSystick()	8	static
-../Firmware/Systick.cpp:20:6:void SysTick_Handler()	16	static
