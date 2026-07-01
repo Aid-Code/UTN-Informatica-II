@@ -1,0 +1,3 @@
+../Firmware/trainSgn.cpp:10:1:trainSgn::trainSgn(uint32_t, uint8_t, uint8_t)	32	static
+../Firmware/trainSgn.cpp:21:6:void trainSgn::start()	16	static
+../Firmware/trainSgn.cpp:26:6:void trainSgn::stop()	16	static
