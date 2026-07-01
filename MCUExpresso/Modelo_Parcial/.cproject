@@ -38,7 +38,7 @@
 								<option id="gnu.cpp.compiler.option.optimization.flags.909156535" name="Other optimization flags" superClass="gnu.cpp.compiler.option.optimization.flags" useByScannerDiscovery="false" value="-fno-common" valueType="string"/>
 								<option id="com.crt.advproject.cpp.hdrlib.327491056" name="Library headers" superClass="com.crt.advproject.cpp.hdrlib" useByScannerDiscovery="false" value="Newlib" valueType="enumerated"/>
 								<option id="com.crt.advproject.cpp.fpu.805309254" name="Floating point" superClass="com.crt.advproject.cpp.fpu" useByScannerDiscovery="true"/>
-								<option id="com.crt.advproject.cpp.exe.debug.option.optimization.level.1826302618" superClass="com.crt.advproject.cpp.exe.debug.option.optimization.level"/>
+								<option id="com.crt.advproject.cpp.exe.debug.option.optimization.level.1826302618" superClass="com.crt.advproject.cpp.exe.debug.option.optimization.level" useByScannerDiscovery="true"/>
 								<inputType id="com.crt.advproject.compiler.cpp.input.579028225" superClass="com.crt.advproject.compiler.cpp.input"/>
 							</tool>
 							<tool id="com.crt.advproject.gcc.exe.debug.1415775390" name="MCU C Compiler" superClass="com.crt.advproject.gcc.exe.debug">
@@ -58,7 +58,7 @@
 								</option>
 								<option id="gnu.c.compiler.option.misc.other.1085852166" name="Other flags" superClass="gnu.c.compiler.option.misc.other" useByScannerDiscovery="false" value="-c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections" valueType="string"/>
 								<option id="gnu.c.compiler.option.optimization.flags.2115566366" name="Other optimization flags" superClass="gnu.c.compiler.option.optimization.flags" useByScannerDiscovery="false" value="-fno-common" valueType="string"/>
-								<option id="com.crt.advproject.gcc.exe.debug.option.optimization.level.1223197452" superClass="com.crt.advproject.gcc.exe.debug.option.optimization.level"/>
+								<option id="com.crt.advproject.gcc.exe.debug.option.optimization.level.1223197452" superClass="com.crt.advproject.gcc.exe.debug.option.optimization.level" useByScannerDiscovery="true"/>
 								<inputType id="com.crt.advproject.compiler.input.612095131" superClass="com.crt.advproject.compiler.input"/>
 							</tool>
 							<tool id="com.crt.advproject.gas.exe.debug.107033388" name="MCU Assembler" superClass="com.crt.advproject.gas.exe.debug">

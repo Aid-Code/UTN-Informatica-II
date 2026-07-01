@@ -9,12 +9,14 @@
 
 trainSgn::trainSgn(uint32_t frec, uint8_t port, uint8_t _pin):puerto(port), pin(_pin)
 {
+	CFG &= ~1; // Limpio el registro
+
 	if (frec >= 40 && frec <= 1000) frecuencia = frec;
 	else frecuencia = 40;
-	uint32_t div_value = frecuencia * CLK_SRC_VAL;
+	uint32_t div_value = CLK_SRC_VAL/frecuencia;
 
-	CFG &= ~(1<<1); // Desactivo la salida para configurar
 	CFG |= 1; // Habilito el periferico para configurar
+	CFG &= ~(1<<1); // Desactivo la salida para configurar
 
 	uint8_t valor = 0;
 
@@ -22,9 +24,11 @@ trainSgn::trainSgn(uint32_t frec, uint8_t port, uint8_t _pin):puerto(port), pin(
 	else if (CLK_SRC_VAL == FRO/2000) valor = 1;
 	else if (CLK_SRC_VAL == FRO/3000) valor = 2;
 
-	CFG |= valor<<2;
+	CFG |= valor<<2; // Seteo CLK_SRC
 
-	uin8_t nro = (32*puerto + pin);
+	CFG |= div_value<<5;
+
+	uint8_t nro = (32*puerto + pin);
 
 	CFG |= nro<<13; // Configuro el pin y el puerto
 }
@@ -42,4 +46,8 @@ void trainSgn::stop(void)
 void trainSgn::operator = (uint32_t frec)
 {
 	this->frecuencia = frec;
+	uint32_t div_value = CLK_SRC_VAL/frecuencia;
+
+	CFG &= ~(0xFF<<5);
+	CFG |= div_value<<5;
 }
