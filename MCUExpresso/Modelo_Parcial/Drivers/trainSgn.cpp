@@ -9,7 +9,7 @@
 
 trainSgn::trainSgn(uint32_t frec, uint8_t port, uint8_t _pin):puerto(port), pin(_pin)
 {
-	CFG &= ~1; // Limpio el registro
+	CFG = 0; // Limpio el registro
 
 	if (frec >= 40 && frec <= 1000) frecuencia = frec;
 	else frecuencia = 40;
@@ -45,9 +45,16 @@ void trainSgn::stop(void)
 
 void trainSgn::operator = (uint32_t frec)
 {
-	this->frecuencia = frec;
+	if (frec >= 40 && frec <= 1000) this->frecuencia = frec;
+	else frecuencia = 40;
+
 	uint32_t div_value = CLK_SRC_VAL/frecuencia;
 
 	CFG &= ~(0xFF<<5);
 	CFG |= div_value<<5;
+}
+
+bool trainSgn::operator == (uint32_t frec)
+{
+	return (frecuencia == frec);
 }

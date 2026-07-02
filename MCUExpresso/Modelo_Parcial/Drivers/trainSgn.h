@@ -27,6 +27,7 @@ public:
 	void stop(void);
 
 	void operator = (uint32_t frec);
+	bool operator == (uint32_t frec);
 };
 
 #endif /* TRAINSGN_H_ */

@@ -140,8 +140,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x38 ./Drivers/DigitalInput.o
  .debug_macro   0x00000000      0xc16 ./Drivers/DigitalInput.o
  .debug_macro   0x00000000      0x1a1 ./Drivers/DigitalInput.o
- .debug_line    0x00000000      0x176 ./Drivers/DigitalInput.o
- .debug_str     0x00000000     0x4041 ./Drivers/DigitalInput.o
+ .debug_line    0x00000000      0x16c ./Drivers/DigitalInput.o
+ .debug_str     0x00000000     0x4037 ./Drivers/DigitalInput.o
  .comment       0x00000000       0x46 ./Drivers/DigitalInput.o
  .debug_frame   0x00000000       0x74 ./Drivers/DigitalInput.o
  .ARM.attributes
@@ -199,8 +199,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x2e ./Drivers/Timer.o
  .debug_macro   0x00000000      0xc16 ./Drivers/Timer.o
  .debug_macro   0x00000000      0x1a1 ./Drivers/Timer.o
- .debug_line    0x00000000      0x1ef ./Drivers/Timer.o
- .debug_str     0x00000000     0x3eeb ./Drivers/Timer.o
+ .debug_line    0x00000000      0x1db ./Drivers/Timer.o
+ .debug_str     0x00000000     0x3ee1 ./Drivers/Timer.o
  .comment       0x00000000       0x46 ./Drivers/Timer.o
  .debug_frame   0x00000000       0xd0 ./Drivers/Timer.o
  .ARM.attributes
@@ -244,8 +244,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x82 ./Aplicacion/Ejercicio1.o
  .debug_macro   0x00000000      0x1a1 ./Aplicacion/Ejercicio1.o
  .debug_macro   0x00000000       0x10 ./Aplicacion/Ejercicio1.o
- .debug_line    0x00000000      0x1de ./Aplicacion/Ejercicio1.o
- .debug_str     0x00000000     0x4141 ./Aplicacion/Ejercicio1.o
+ .debug_line    0x00000000      0x1ca ./Aplicacion/Ejercicio1.o
+ .debug_str     0x00000000     0x4137 ./Aplicacion/Ejercicio1.o
  .comment       0x00000000       0x46 ./Aplicacion/Ejercicio1.o
  .ARM.attributes
                 0x00000000       0x2c ./Aplicacion/Ejercicio1.o
@@ -265,8 +265,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x82 ./Aplicacion/Ejercicio2.o
  .debug_macro   0x00000000      0x1a1 ./Aplicacion/Ejercicio2.o
  .debug_macro   0x00000000       0x10 ./Aplicacion/Ejercicio2.o
- .debug_line    0x00000000      0x1de ./Aplicacion/Ejercicio2.o
- .debug_str     0x00000000     0x4141 ./Aplicacion/Ejercicio2.o
+ .debug_line    0x00000000      0x1ca ./Aplicacion/Ejercicio2.o
+ .debug_str     0x00000000     0x4137 ./Aplicacion/Ejercicio2.o
  .comment       0x00000000       0x46 ./Aplicacion/Ejercicio2.o
  .ARM.attributes
                 0x00000000       0x2c ./Aplicacion/Ejercicio2.o
@@ -286,8 +286,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x82 ./Aplicacion/Ejercicio3.o
  .debug_macro   0x00000000      0x1a1 ./Aplicacion/Ejercicio3.o
  .debug_macro   0x00000000       0x10 ./Aplicacion/Ejercicio3.o
- .debug_line    0x00000000      0x1de ./Aplicacion/Ejercicio3.o
- .debug_str     0x00000000     0x4141 ./Aplicacion/Ejercicio3.o
+ .debug_line    0x00000000      0x1ca ./Aplicacion/Ejercicio3.o
+ .debug_str     0x00000000     0x4137 ./Aplicacion/Ejercicio3.o
  .comment       0x00000000       0x46 ./Aplicacion/Ejercicio3.o
  .ARM.attributes
                 0x00000000       0x2c ./Aplicacion/Ejercicio3.o
@@ -307,8 +307,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x82 ./Aplicacion/Ejercicio4.o
  .debug_macro   0x00000000      0x1a1 ./Aplicacion/Ejercicio4.o
  .debug_macro   0x00000000       0x10 ./Aplicacion/Ejercicio4.o
- .debug_line    0x00000000      0x1de ./Aplicacion/Ejercicio4.o
- .debug_str     0x00000000     0x4141 ./Aplicacion/Ejercicio4.o
+ .debug_line    0x00000000      0x1ca ./Aplicacion/Ejercicio4.o
+ .debug_str     0x00000000     0x4137 ./Aplicacion/Ejercicio4.o
  .comment       0x00000000       0x46 ./Aplicacion/Ejercicio4.o
  .ARM.attributes
                 0x00000000       0x2c ./Aplicacion/Ejercicio4.o
@@ -328,8 +328,8 @@ Discarded input sections
  .debug_macro   0x00000000       0x82 ./Aplicacion/Ejercicio4b.o
  .debug_macro   0x00000000      0x1a1 ./Aplicacion/Ejercicio4b.o
  .debug_macro   0x00000000       0x10 ./Aplicacion/Ejercicio4b.o
- .debug_line    0x00000000      0x1cd ./Aplicacion/Ejercicio4b.o
- .debug_str     0x00000000     0x4131 ./Aplicacion/Ejercicio4b.o
+ .debug_line    0x00000000      0x1b9 ./Aplicacion/Ejercicio4b.o
+ .debug_str     0x00000000     0x4127 ./Aplicacion/Ejercicio4b.o
  .comment       0x00000000       0x46 ./Aplicacion/Ejercicio4b.o
  .ARM.attributes
                 0x00000000       0x2c ./Aplicacion/Ejercicio4b.o
@@ -1183,32 +1183,32 @@ LOAD linker stubs
  .debug_macro   0x000023b1       0x2d ./Drivers/gpio.o
  .debug_macro   0x000023de       0x58 ./Aplicacion/Ejercicio5.o
 
-.debug_line     0x00000000     0x1a9a
- .debug_line    0x00000000      0x182 ./Firmware/Init.o
- .debug_line    0x00000182      0x19e ./Firmware/Systick.o
- .debug_line    0x00000320      0x635 ./Firmware/cr_cpp_config.o
- .debug_line    0x00000955      0x10b ./Firmware/cr_startup_lpc84x.o
- .debug_line    0x00000a60      0x1eb ./Drivers/PWM.o
- .debug_line    0x00000c4b      0x201 ./Drivers/PerifericoTemporizado.o
- .debug_line    0x00000e4c      0x3e9 ./Drivers/PintInt.o
- .debug_line    0x00001235      0x3d3 ./Drivers/gpio.o
- .debug_line    0x00001608      0x254 ./Aplicacion/Ejercicio5.o
- .debug_line    0x0000185c      0x1dd C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(_cr_sbrk.o)
- .debug_line    0x00001a39       0x61 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(_cr_check_heap.o)
+.debug_line     0x00000000     0x1a18
+ .debug_line    0x00000000      0x16e ./Firmware/Init.o
+ .debug_line    0x0000016e      0x18a ./Firmware/Systick.o
+ .debug_line    0x000002f8      0x635 ./Firmware/cr_cpp_config.o
+ .debug_line    0x0000092d      0x10b ./Firmware/cr_startup_lpc84x.o
+ .debug_line    0x00000a38      0x1d7 ./Drivers/PWM.o
+ .debug_line    0x00000c0f      0x1f7 ./Drivers/PerifericoTemporizado.o
+ .debug_line    0x00000e06      0x3d5 ./Drivers/PintInt.o
+ .debug_line    0x000011db      0x3bf ./Drivers/gpio.o
+ .debug_line    0x0000159a      0x240 ./Aplicacion/Ejercicio5.o
+ .debug_line    0x000017da      0x1dd C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(_cr_sbrk.o)
+ .debug_line    0x000019b7       0x61 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(_cr_check_heap.o)
 
-.debug_str      0x00000000     0xabef
- .debug_str     0x00000000     0xabef ./Firmware/Init.o
-                               0x401d (size before relaxing)
- .debug_str     0x0000abef     0x3d14 ./Firmware/Systick.o
- .debug_str     0x0000abef     0x91cc ./Firmware/cr_cpp_config.o
- .debug_str     0x0000abef     0x3670 ./Firmware/cr_startup_lpc84x.o
- .debug_str     0x0000abef     0x4079 ./Drivers/PWM.o
- .debug_str     0x0000abef     0x3e20 ./Drivers/PerifericoTemporizado.o
- .debug_str     0x0000abef     0x3ea5 ./Drivers/PintInt.o
- .debug_str     0x0000abef     0x3fd3 ./Drivers/gpio.o
- .debug_str     0x0000abef     0x4403 ./Aplicacion/Ejercicio5.o
- .debug_str     0x0000abef      0x225 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(_cr_sbrk.o)
- .debug_str     0x0000abef      0x170 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(_cr_check_heap.o)
+.debug_str      0x00000000     0xabe5
+ .debug_str     0x00000000     0xabe5 ./Firmware/Init.o
+                               0x4013 (size before relaxing)
+ .debug_str     0x0000abe5     0x3d0a ./Firmware/Systick.o
+ .debug_str     0x0000abe5     0x91c2 ./Firmware/cr_cpp_config.o
+ .debug_str     0x0000abe5     0x3666 ./Firmware/cr_startup_lpc84x.o
+ .debug_str     0x0000abe5     0x406f ./Drivers/PWM.o
+ .debug_str     0x0000abe5     0x3e16 ./Drivers/PerifericoTemporizado.o
+ .debug_str     0x0000abe5     0x3e9b ./Drivers/PintInt.o
+ .debug_str     0x0000abe5     0x3fc9 ./Drivers/gpio.o
+ .debug_str     0x0000abe5     0x43f9 ./Aplicacion/Ejercicio5.o
+ .debug_str     0x0000abe5      0x225 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(_cr_sbrk.o)
+ .debug_str     0x0000abe5      0x170 C:/nxp/MCUXpressoIDE_25.6.136/ide/plugins/com.nxp.mcuxpresso.tools.win32_25.6.0.202501151204/tools/bin/../lib/gcc/arm-none-eabi/14.2.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_newlib_nohost.a(_cr_check_heap.o)
 
 .comment        0x00000000       0x45
  .comment       0x00000000       0x45 ./Firmware/Init.o

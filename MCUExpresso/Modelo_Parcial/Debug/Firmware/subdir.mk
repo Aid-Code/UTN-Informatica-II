@@ -7,8 +7,7 @@ CPP_SRCS += \
 ../Firmware/Init.cpp \
 ../Firmware/Systick.cpp \
 ../Firmware/cr_cpp_config.cpp \
-../Firmware/cr_startup_lpc84x.cpp \
-../Firmware/trainSgn.cpp 
+../Firmware/cr_startup_lpc84x.cpp 
 
 C_SRCS += \
 ../Firmware/crp.c \
@@ -21,8 +20,7 @@ CPP_DEPS += \
 ./Firmware/Init.d \
 ./Firmware/Systick.d \
 ./Firmware/cr_cpp_config.d \
-./Firmware/cr_startup_lpc84x.d \
-./Firmware/trainSgn.d 
+./Firmware/cr_startup_lpc84x.d 
 
 C_DEPS += \
 ./Firmware/crp.d \
@@ -35,8 +33,7 @@ OBJS += \
 ./Firmware/cr_cpp_config.o \
 ./Firmware/cr_startup_lpc84x.o \
 ./Firmware/crp.o \
-./Firmware/mtb.o \
-./Firmware/trainSgn.o 
+./Firmware/mtb.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -65,7 +62,7 @@ Firmware/%.o: ../Firmware/%.c Firmware/subdir.mk
 clean: clean-Firmware
 
 clean-Firmware:
-	-$(RM) ./Firmware/Init.d ./Firmware/Init.o ./Firmware/Systick.d ./Firmware/Systick.o ./Firmware/aeabi_romdiv_patch.o ./Firmware/cr_cpp_config.d ./Firmware/cr_cpp_config.o ./Firmware/cr_startup_lpc84x.d ./Firmware/cr_startup_lpc84x.o ./Firmware/crp.d ./Firmware/crp.o ./Firmware/mtb.d ./Firmware/mtb.o ./Firmware/trainSgn.d ./Firmware/trainSgn.o
+	-$(RM) ./Firmware/Init.d ./Firmware/Init.o ./Firmware/Systick.d ./Firmware/Systick.o ./Firmware/aeabi_romdiv_patch.o ./Firmware/cr_cpp_config.d ./Firmware/cr_cpp_config.o ./Firmware/cr_startup_lpc84x.d ./Firmware/cr_startup_lpc84x.o ./Firmware/crp.d ./Firmware/crp.o ./Firmware/mtb.d ./Firmware/mtb.o
 
 .PHONY: clean-Firmware
 
