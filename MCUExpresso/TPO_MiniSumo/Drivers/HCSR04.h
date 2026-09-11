@@ -10,7 +10,11 @@
 
 #include <gpio.h>
 
-#define CTIMER (*((uint32_t*)0x4003 8000))
+#if defined (__cplusplus)
+extern "C" {
+void CTIMER0_IRQHandler (void);
+}
+#endif
 
 class HC_SR04
 {
@@ -22,6 +26,8 @@ private:
 	gpio trig;
 	uint8_t pin_trig, port_trig, pin_echo;
 	uint32_t distancia, tiempo;
+
+	bool distancia_recibida;
 };
 
 #endif /* HCSR04_H_ */
