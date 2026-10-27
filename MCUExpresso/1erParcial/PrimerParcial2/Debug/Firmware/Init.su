@@ -1,0 +1,2 @@
+../Firmware/Init.cpp:16:6:void Inicializar()	8	static
+../Firmware/Init.cpp:46:6:void InitSystick()	8	static
