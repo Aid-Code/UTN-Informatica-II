@@ -1,0 +1,3 @@
+../Drivers/Teclado.cpp:10:1:Teclado::Teclado()	16	static
+../Drivers/Teclado.cpp:17:9:uint8_t Teclado::getKey()	24	static
+../Drivers/Teclado.cpp:30:6:virtual void Teclado::handler()	16	static

@@ -1,0 +1,1 @@
+../Drivers/Display7Segs/HabilitacionesCD4017.cpp:10:6:virtual void HabilitacionesCD4017::encenderSiguiente(uint8_t)	16	static

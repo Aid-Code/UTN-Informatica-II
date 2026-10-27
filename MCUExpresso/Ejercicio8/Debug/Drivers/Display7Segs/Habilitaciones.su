@@ -1,0 +1,3 @@
+../Drivers/Display7Segs/Habilitaciones.cpp:10:1:Habilitaciones::Habilitaciones(gpio*, uint8_t)	48	static
+../Drivers/Display7Segs/Habilitaciones.cpp:20:1:Habilitaciones::Habilitaciones(const Habilitaciones&)	40	static
+../Drivers/Display7Segs/Habilitaciones.cpp:31:1:Habilitaciones::~Habilitaciones()	16	static

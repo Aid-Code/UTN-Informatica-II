@@ -1,0 +1,4 @@
+C:\Users\jesco\Documents\Info II\Guias de Ejercicios\GuiaEjerciciosTecladoDisplay\Ejercicio8\Drivers\Teclado/Teclado.h:14:7:Teclado::~Teclado()	16	static
+../Drivers/Teclado/TecladoMatricial.cpp:10:1:TecladoMatricial::TecladoMatricial(gpio*, uint8_t, gpio*, uint8_t)	48	static
+../Drivers/Teclado/TecladoMatricial.cpp:29:1:TecladoMatricial::~TecladoMatricial()	16	static
+../Drivers/Teclado/TecladoMatricial.cpp:35:9:virtual uint8_t TecladoMatricial::TecladoHw()	32	static

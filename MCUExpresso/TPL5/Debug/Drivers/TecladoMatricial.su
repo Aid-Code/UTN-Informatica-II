@@ -1,0 +1,4 @@
+C:\Users\jesco\Documents\Info II\MCUXpresso_CL2026\TPL5\Drivers/Teclado.h:14:7:Teclado::~Teclado()	16	static
+../Drivers/TecladoMatricial.cpp:10:1:TecladoMatricial::TecladoMatricial(gpio*, uint8_t, gpio*, uint8_t)	48	static
+../Drivers/TecladoMatricial.cpp:28:1:TecladoMatricial::~TecladoMatricial()	16	static
+../Drivers/TecladoMatricial.cpp:34:9:virtual uint8_t TecladoMatricial::TecladoHw()	16	static
