@@ -19,11 +19,15 @@
 #include <PinInt.h>
 #include <Timer.h>
 #include <Uart.h>
-AnalogInput sens(2);
-int val = 0;
+AnalogInput sens(2); //CONFIG CNY
+int val = 0; //VALOR CNY
+gpio enab (0,8, gpio::SALIDA, gpio::LOW); //CONFIGURO EL PIN HABILITADOR DEL ESP8266
+Uart esp8266 (115200);
+Uart PC (115200);
 int main(void) {
+	enab.setPIN(); //HABILITO EL PIN DEL ESP8266
 while(1) {
-	val = sens.getValor();
+	val = sens.getValor(); //GET VAL CNY
     }
     return 0 ;
 }

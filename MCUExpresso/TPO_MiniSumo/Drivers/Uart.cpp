@@ -42,8 +42,8 @@ Uart::Uart(uint32_t _baudrate) {
 
 void Uart::Transmitir(uint8_t *_buff, uint8_t _cant){
 	int i = 0;
-
-	//for(i=0; i < _cant; i++) buffTx[i] = _buff[i];
+	buffTx = new uint16_t [_cant];
+	for(i=0; i < _cant; i++) buffTx[i] = _buff[i];
 
 	cantBytes = i;
 	indiceTx = 0;
@@ -58,7 +58,7 @@ void Uart::UARThandlerIRQ (void){
 	int16_t dato;
 
 	if(stat & (1 << 2)){
-		//dato = buffTx[indiceTx];
+		dato = buffTx[indiceTx];
 		USART0->TXDAT = dato;
 		indiceTx++;
 
@@ -74,6 +74,18 @@ void UART0_IRQHandler (void){
 	h->UARThandlerIRQ();
 }
 
+int16_t Uart::Recibir(void){
+	int16_t ret = Uart::NO_DATA;
+
+		if(datoNuevo==1)
+		{
+			datoNuevo = false;
+			ret = byteRx;
+			return ret;
+		}
+		if(byteRx==Uart::NO_DATA) return -1;
+		else{ return -255;}
+}
 
 
 
