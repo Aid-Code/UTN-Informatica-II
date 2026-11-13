@@ -1,0 +1,6 @@
+C:\Users\jesco\Documents\Info II\Guias de Ejercicios\GuiaEjerciciosTecladoDisplay\Ejercicio8\Drivers\Display7Segs/Segmentos4511.h:19:2:Segmentos4511::Segmentos4511(gpio*)	16	static
+C:\Users\jesco\Documents\Info II\Guias de Ejercicios\GuiaEjerciciosTecladoDisplay\Ejercicio8\Drivers\Display7Segs/HabilitacionesCD4017.h:19:2:HabilitacionesCD4017::HabilitacionesCD4017(gpio*, uint8_t)	24	static
+../Aplicacion/Ejercicio8.cpp:59:5:int main()	216	static
+../Aplicacion/Ejercicio8.cpp:153:6:void segundero()	8	static
+../Aplicacion/Ejercicio8.cpp:161:1:void __static_initialization_and_destruction_0()	16	static
+../Aplicacion/Ejercicio8.cpp:161:1:cpp)	8	static

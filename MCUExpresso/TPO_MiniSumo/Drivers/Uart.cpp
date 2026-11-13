@@ -7,6 +7,8 @@
 
 #include <Uart.h>
 
+Uart * h;
+
 Uart::Uart(uint32_t _baudrate) {
 	baudrate = _baudrate;
 	SYSCON->SYSAHBCLKCTRL0 |= (1 << 14); //Habilito el CLK del periférico
@@ -34,5 +36,44 @@ Uart::Uart(uint32_t _baudrate) {
 	ISER0 |= (1 << 3); //NVIC INTERRUPCION
 
 	USART0->CFG |= 1; //HABILITO UART
+
+	h = this;
 }
+
+void Uart::Transmitir(uint8_t *_buff, uint8_t _cant){
+	int i = 0;
+
+	for(i=0; i < _cant; i++) buffTx[i] = _buff[i];
+
+	cantBytes = i;
+	indiceTx = 0;
+
+	enviando = true;
+
+	USART0->INTENSET |= 1<<2;
+}
+
+void Uart::UARThandlerIRQ (void){
+	uint32_t stat = USART0->INTSTAT;
+	int16_t dato;
+
+	if(stat & (1 << 2)){
+		dato = buffTx[indiceTx];
+		USART0->TXDAT = dato;
+		indiceTx++;
+
+		if (indiceTx == cantBytes){
+			indiceTx = 0;
+			USART0->INTENCLR |= 1<<2;
+			enviando = false;
+		}
+	}
+}
+
+void UART0_IRQHandler (void){
+	h->UARThandlerIRQ();
+}
+
+
+
 
