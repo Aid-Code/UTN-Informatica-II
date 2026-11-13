@@ -10,8 +10,6 @@
 
 #include <gpio.h>
 
-#define CTIMER (*((uint32_t*)0x4003 8000))
-
 class HC_SR04
 {
 public:
