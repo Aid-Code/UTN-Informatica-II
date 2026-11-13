@@ -1,5 +1,0 @@
-../Drivers/Uart.cpp:12:1:Uart::Uart(uint32_t)	16	static
-../Drivers/Uart.cpp:43:6:void Uart::Transmitir(uint8_t*, uint8_t)	32	static
-../Drivers/Uart.cpp:56:6:void Uart::UARThandlerIRQ()	24	static
-../Drivers/Uart.cpp:73:6:void UART0_IRQHandler()	8	static
-../Drivers/Uart.cpp:77:9:int16_t Uart::Recibir()	24	static
