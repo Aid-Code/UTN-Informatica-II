@@ -9,6 +9,7 @@ CPP_SRCS += \
 ../Drivers/PintInt.cpp \
 ../Drivers/Timer.cpp \
 ../Drivers/Uart.cpp \
+../Drivers/adc.cpp \
 ../Drivers/gpio.cpp 
 
 CPP_DEPS += \
@@ -17,6 +18,7 @@ CPP_DEPS += \
 ./Drivers/PintInt.d \
 ./Drivers/Timer.d \
 ./Drivers/Uart.d \
+./Drivers/adc.d \
 ./Drivers/gpio.d 
 
 OBJS += \
@@ -25,6 +27,7 @@ OBJS += \
 ./Drivers/PintInt.o \
 ./Drivers/Timer.o \
 ./Drivers/Uart.o \
+./Drivers/adc.o \
 ./Drivers/gpio.o 
 
 
@@ -40,7 +43,7 @@ Drivers/%.o: ../Drivers/%.cpp Drivers/subdir.mk
 clean: clean-Drivers
 
 clean-Drivers:
-	-$(RM) ./Drivers/HCSR04.d ./Drivers/HCSR04.o ./Drivers/PerifericoTemporizado.d ./Drivers/PerifericoTemporizado.o ./Drivers/PintInt.d ./Drivers/PintInt.o ./Drivers/Timer.d ./Drivers/Timer.o ./Drivers/Uart.d ./Drivers/Uart.o ./Drivers/gpio.d ./Drivers/gpio.o
+	-$(RM) ./Drivers/HCSR04.d ./Drivers/HCSR04.o ./Drivers/PerifericoTemporizado.d ./Drivers/PerifericoTemporizado.o ./Drivers/PintInt.d ./Drivers/PintInt.o ./Drivers/Timer.d ./Drivers/Timer.o ./Drivers/Uart.d ./Drivers/Uart.o ./Drivers/adc.d ./Drivers/adc.o ./Drivers/gpio.d ./Drivers/gpio.o
 
 .PHONY: clean-Drivers
 

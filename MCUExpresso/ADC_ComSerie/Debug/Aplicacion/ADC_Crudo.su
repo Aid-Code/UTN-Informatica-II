@@ -1,0 +1,4 @@
+../Aplicacion/ADC_Crudo.cpp:19:5:int main()	8	static
+../Aplicacion/ADC_Crudo.cpp:29:6:void funcionLectura()	8	static
+../Aplicacion/ADC_Crudo.cpp:33:1:void __static_initialization_and_destruction_0()	16	static
+../Aplicacion/ADC_Crudo.cpp:33:1:cpp)	8	static
