@@ -4,30 +4,30 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
+../Drivers/AnalogInput.cpp \
 ../Drivers/HCSR04.cpp \
 ../Drivers/PerifericoTemporizado.cpp \
 ../Drivers/PintInt.cpp \
 ../Drivers/Timer.cpp \
 ../Drivers/Uart.cpp \
-../Drivers/adc.cpp \
 ../Drivers/gpio.cpp 
 
 CPP_DEPS += \
+./Drivers/AnalogInput.d \
 ./Drivers/HCSR04.d \
 ./Drivers/PerifericoTemporizado.d \
 ./Drivers/PintInt.d \
 ./Drivers/Timer.d \
 ./Drivers/Uart.d \
-./Drivers/adc.d \
 ./Drivers/gpio.d 
 
 OBJS += \
+./Drivers/AnalogInput.o \
 ./Drivers/HCSR04.o \
 ./Drivers/PerifericoTemporizado.o \
 ./Drivers/PintInt.o \
 ./Drivers/Timer.o \
 ./Drivers/Uart.o \
-./Drivers/adc.o \
 ./Drivers/gpio.o 
 
 
@@ -35,7 +35,7 @@ OBJS += \
 Drivers/%.o: ../Drivers/%.cpp Drivers/subdir.mk
 	@echo 'Building file: $<'
 	@echo 'Invoking: MCU C++ Compiler'
-	arm-none-eabi-c++ -DDEBUG -D__CODE_RED -D__NEWLIB__ -DCORE_M0PLUS -D__MTB_DISABLE -D__MTB_BUFFER_SIZE=256 -DCPP_USE_HEAP -D__LPC84X__ -I"C:\Users\Franko Dona\Documents\GitHub\UTN-Informatica-II\MCUExpresso\TPO_MiniSumo\Drivers" -I"C:\Users\Franko Dona\Documents\GitHub\UTN-Informatica-II\MCUExpresso\TPO_MiniSumo\Firmware" -O0 -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fmerge-constants -fmacro-prefix-map="$(<D)/"= -mcpu=cortex-m0 -mthumb -fstack-usage -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
+	arm-none-eabi-c++ -DDEBUG -D__CODE_RED -D__NEWLIB__ -DCORE_M0PLUS -D__MTB_DISABLE -D__MTB_BUFFER_SIZE=256 -DCPP_USE_HEAP -D__LPC84X__ -I"C:\Users\abril\Documentos\GitHub\UTN-Informatica-II\MCUExpresso\TPO_MiniSumo\Drivers" -I"C:\Users\abril\Documentos\GitHub\UTN-Informatica-II\MCUExpresso\TPO_MiniSumo\Firmware" -O0 -fno-common -g3 -gdwarf-4 -Wall -c -fmessage-length=0 -fno-builtin -ffunction-sections -fdata-sections -fno-rtti -fno-exceptions -fmerge-constants -fmacro-prefix-map="$(<D)/"= -mcpu=cortex-m0 -mthumb -fstack-usage -MMD -MP -MF"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -MT"$(@:%.o=%.d)" -o "$@" "$<"
 	@echo 'Finished building: $<'
 	@echo ' '
 
@@ -43,7 +43,7 @@ Drivers/%.o: ../Drivers/%.cpp Drivers/subdir.mk
 clean: clean-Drivers
 
 clean-Drivers:
-	-$(RM) ./Drivers/HCSR04.d ./Drivers/HCSR04.o ./Drivers/PerifericoTemporizado.d ./Drivers/PerifericoTemporizado.o ./Drivers/PintInt.d ./Drivers/PintInt.o ./Drivers/Timer.d ./Drivers/Timer.o ./Drivers/Uart.d ./Drivers/Uart.o ./Drivers/adc.d ./Drivers/adc.o ./Drivers/gpio.d ./Drivers/gpio.o
+	-$(RM) ./Drivers/AnalogInput.d ./Drivers/AnalogInput.o ./Drivers/HCSR04.d ./Drivers/HCSR04.o ./Drivers/PerifericoTemporizado.d ./Drivers/PerifericoTemporizado.o ./Drivers/PintInt.d ./Drivers/PintInt.o ./Drivers/Timer.d ./Drivers/Timer.o ./Drivers/Uart.d ./Drivers/Uart.o ./Drivers/gpio.d ./Drivers/gpio.o
 
 .PHONY: clean-Drivers
 
