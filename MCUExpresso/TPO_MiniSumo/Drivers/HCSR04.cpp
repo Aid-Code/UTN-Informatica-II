@@ -13,6 +13,9 @@ HCSR04::HCSR04(uint8_t _pin_trig, uint8_t _port_trig, uint8_t _pin_echo, uint8_t
 {
 	instancia = this;
 	estado_capture = 0;
+	distancia = 0;
+	tiempoi = 0;
+	tiempof = 0;
 
 	// Configuracion de Switch Matrix:
 	uint8_t pin_habilitacion = (port_echo * 32) + pin_echo;

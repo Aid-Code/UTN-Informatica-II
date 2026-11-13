@@ -9,7 +9,7 @@
  * be bound by the applicable license terms, then you may not retain, install,
  * activate or otherwise use the software.
  */
-
+/*
 #include <cr_section_macros.h>
 #include <LPC845.h>
 #include <AnalogInput.h>
@@ -32,3 +32,4 @@ while(1) {
     return 0 ;
 }
 
+*/
