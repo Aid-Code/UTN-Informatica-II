@@ -1,0 +1,5 @@
+../Aplicacion/BuffersCirculares.cpp:18:5:int main()	136	static
+../Aplicacion/BuffersCirculares.cpp:58:6:void funcionApagado()	8	static
+../Aplicacion/BuffersCirculares.cpp:65:6:void errorRta()	8	static
+../Aplicacion/BuffersCirculares.cpp:68:1:void __static_initialization_and_destruction_0()	16	static
+../Aplicacion/BuffersCirculares.cpp:68:1:cpp)	8	static

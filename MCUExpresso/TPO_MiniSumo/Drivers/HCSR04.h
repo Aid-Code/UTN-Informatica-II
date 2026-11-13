@@ -11,23 +11,25 @@
 #include <gpio.h>
 
 #if defined (__cplusplus)
-extern "C" {
-void CTIMER0_IRQHandler (void);
+extern "C"
+{
+	void CTIMER0_IRQHandler (void);
 }
 #endif
 
-class HC_SR04
+class HCSR04
 {
 public:
-	HC_SR04(uint8_t _pin_trig, uint8_t _port_trig, uint8_t _pin_echo);
+	HCSR04(uint8_t _pin_trig, uint8_t _port_trig, uint8_t _pin_echo, uint8_t _port_echo);
 	uint32_t getDistancia(void);
 
-private:
-	gpio trig;
-	uint8_t pin_trig, port_trig, pin_echo;
-	uint32_t distancia, tiempo;
+	friend void CTIMER0_IRQHandler (void);
 
-	bool distancia_recibida;
+private:
+	uint8_t pin_trig, port_trig, pin_echo, port_echo;
+	gpio trig;
+	volatile uint32_t distancia, tiempoi, tiempof;
+	bool estado_capture;
 };
 
 #endif /* HCSR04_H_ */

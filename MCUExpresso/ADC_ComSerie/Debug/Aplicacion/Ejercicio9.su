@@ -1,0 +1,5 @@
+../Aplicacion/Ejercicio9.cpp:31:5:int main()	160	static
+../Aplicacion/Ejercicio9.cpp:123:6:void funcionApagado()	8	static
+../Aplicacion/Ejercicio9.cpp:130:6:void errorRta()	8	static
+../Aplicacion/Ejercicio9.cpp:133:1:void __static_initialization_and_destruction_0(int, int)	24	static
+../Aplicacion/Ejercicio9.cpp:133:1:cpp)	8	static

@@ -1,0 +1,3 @@
+../Drivers/Display7Segs/Segmentos.cpp:10:1:Segmentos::Segmentos(gpio*, uint8_t)	48	static
+../Drivers/Display7Segs/Segmentos.cpp:20:1:Segmentos::Segmentos(const Segmentos&)	40	static
+../Drivers/Display7Segs/Segmentos.cpp:30:1:Segmentos::~Segmentos()	16	static

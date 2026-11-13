@@ -1,0 +1,4 @@
+C:\Users\jesco\Documents\Info II\Guias de Ejercicios\GuiaEjerciciosTecladoDisplay\Ejercicio8\Drivers\Teclado/Teclado.h:14:7:Teclado::~Teclado()	16	static
+../Drivers/Teclado/TecladoLineal.cpp:11:1:TecladoLineal::TecladoLineal(gpio*, uint8_t)	48	static
+../Drivers/Teclado/TecladoLineal.cpp:21:1:TecladoLineal::~TecladoLineal()	16	static
+../Drivers/Teclado/TecladoLineal.cpp:26:9:virtual uint8_t TecladoLineal::TecladoHw()	24	static

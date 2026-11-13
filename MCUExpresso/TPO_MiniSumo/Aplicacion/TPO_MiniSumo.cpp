@@ -9,25 +9,27 @@
  * be bound by the applicable license terms, then you may not retain, install,
  * activate or otherwise use the software.
  */
-
+/*
 #include <cr_section_macros.h>
-
-// TODO: insert other include files here
-
-// TODO: insert other definitions and declarations here
-
+#include <LPC845.h>
+#include <AnalogInput.h>
+#include <gpio.h>
+#include <HCSR04.h>
+#include <PerifericoTemporizado.h>
+#include <PinInt.h>
+#include <Timer.h>
+#include <Uart.h>
+AnalogInput sens(2); //CONFIG CNY
+int val = 0; //VALOR CNY
+gpio enab (0,8, gpio::SALIDA, gpio::LOW); //CONFIGURO EL PIN HABILITADOR DEL ESP8266
+Uart esp8266 (115200);
+Uart PC (115200);
 int main(void) {
-
-    // TODO: insert code here
-
-    // Force the counter to be placed into memory
-    volatile static int i = 0 ;
-    // Enter an infinite loop, just incrementing a counter
-    while(1) {
-        i++ ;
-        // "Dummy" NOP to allow source level single
-        // stepping of tight while() loop
-        __asm volatile ("nop");
+	enab.setPIN(); //HABILITO EL PIN DEL ESP8266
+while(1) {
+	val = sens.getValor(); //GET VAL CNY
     }
     return 0 ;
 }
+
+*/

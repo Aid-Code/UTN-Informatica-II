@@ -1,0 +1,3 @@
+../Aplicacion/MdeRecepcion.cpp:15:6:void MdeRecepcion(uint8_t)	16	static
+../Aplicacion/MdeRecepcion.cpp:115:6:void envioError()	8	static
+../Aplicacion/MdeRecepcion.cpp:123:6:void InitMdeRecepcion()	8	static

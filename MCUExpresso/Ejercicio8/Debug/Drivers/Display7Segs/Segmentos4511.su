@@ -1,0 +1,1 @@
+../Drivers/Display7Segs/Segmentos4511.cpp:10:6:virtual void Segmentos4511::setValor(uint8_t)	24	static
