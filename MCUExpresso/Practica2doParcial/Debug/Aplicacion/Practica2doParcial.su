@@ -1,0 +1,7 @@
+../Aplicacion/Practica2doParcial.cpp:50:5:int main()	216	static
+../Aplicacion/Practica2doParcial.cpp:119:11:infoNivel mdeRecepcion(uint8_t)	24	static
+../Aplicacion/Practica2doParcial.cpp:191:6:void actualizarDisplay(Display7Segs&, infoNivel)	32	static
+../Aplicacion/Practica2doParcial.cpp:227:6:void mdeAutos()	16	static
+C:\Users\jesco\Documents\Info II\MCUXpresso_CL2026\Practica2doParcial\Drivers/DigitalInput.h:15:7:DigitalInput::~DigitalInput()	16	static
+../Aplicacion/Practica2doParcial.cpp:314:1:void __static_initialization_and_destruction_0()	16	static
+../Aplicacion/Practica2doParcial.cpp:314:1:cpp)	8	static

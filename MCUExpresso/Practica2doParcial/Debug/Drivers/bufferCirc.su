@@ -1,0 +1,4 @@
+../Drivers/bufferCirc.cpp:11:1:bufferCirc::bufferCirc(uint8_t)	16	static
+../Drivers/bufferCirc.cpp:21:6:void bufferCirc::push(uint8_t)	16	static
+../Drivers/bufferCirc.cpp:34:9:int16_t bufferCirc::pop()	24	static
+../Drivers/bufferCirc.cpp:50:6:bool bufferCirc::hayLugar()	16	static
