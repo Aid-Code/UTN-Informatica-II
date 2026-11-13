@@ -11,23 +11,20 @@
  */
 
 #include <cr_section_macros.h>
-
-// TODO: insert other include files here
-
-// TODO: insert other definitions and declarations here
-
+#include <LPC845.h>
+#include <AnalogInput.h>
+#include <gpio.h>
+#include <HCSR04.h>
+#include <PerifericoTemporizado.h>
+#include <PinInt.h>
+#include <Timer.h>
+#include <Uart.h>
+AnalogInput sens(2);
+int val = 0;
 int main(void) {
-
-    // TODO: insert code here
-
-    // Force the counter to be placed into memory
-    volatile static int i = 0 ;
-    // Enter an infinite loop, just incrementing a counter
-    while(1) {
-        i++ ;
-        // "Dummy" NOP to allow source level single
-        // stepping of tight while() loop
-        __asm volatile ("nop");
+while(1) {
+	val = sens.getValor();
     }
     return 0 ;
 }
+
