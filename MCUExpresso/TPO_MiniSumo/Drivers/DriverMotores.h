@@ -13,8 +13,13 @@
 class DriverMotores
 {
 public:
-	DriverMotores();
+	gpio *sumo;
+	DriverMotores(gpio *pinesMot);
 	virtual ~DriverMotores();
+	void Izq(void);
+	void Der(void);
+	void Fordw(void);
+	void Revers(void);
 };
 
 #endif /* DRIVERMOTORES_H_ */
