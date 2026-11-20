@@ -5116,7 +5116,7 @@
 				)
 			)
 		)
-		(property "Value" "390"
+		(property "Value" "1,8k"
 			(at 26.924 85.852 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6218,7 +6218,7 @@
 				)
 			)
 		)
-		(property "Value" "240"
+		(property "Value" "270"
 			(at 37.592 44.45 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6379,7 +6379,7 @@
 				)
 			)
 		)
-		(property "Value" "240"
+		(property "Value" "1,2k"
 			(at 37.592 76.2 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6966,7 +6966,7 @@
 				)
 			)
 		)
-		(property "Value" "720"
+		(property "Value" "820"
 			(at 26.924 54.102 0)
 			(show_name no)
 			(do_not_autoplace no)
