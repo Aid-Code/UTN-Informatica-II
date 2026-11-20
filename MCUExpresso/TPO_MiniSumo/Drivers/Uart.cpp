@@ -9,7 +9,7 @@
 
 Uart * h;
 
-Uart::Uart(uint32_t _baudrate) {
+Uart::Uart(uint32_t _baudrate, uint16_t _trans, uint16_t _rec, uint8_t tipoInt) {
 	baudrate = _baudrate;
 	SYSCON->SYSAHBCLKCTRL0 |= (1 << 14); //Habilito el CLK del periférico
 
@@ -19,7 +19,7 @@ Uart::Uart(uint32_t _baudrate) {
 	SYSCON->SYSAHBCLKCTRL0 |= (1<<7);
 
 	PINASSIGN0 &= ~(0x0000FFFFF);
-	PINASSIGN0 = (25 << 0) | (24 << 8); //Configuro el pin P0.25 para la transmisión y el P0.24 para la recepción del puerto serie
+	PINASSIGN0 = (_trans << 0) | (_rec << 8); //Configuro el pin P0.25 para la transmisión y el P0.24 para la recepción del puerto serie
 
 	USART0->CFG = (0 << 0) //0 DISABLE 1 ENABLE
 			| (1 << 2) //0=7 BITS 1=8 BITS 2=9 BITS
@@ -28,7 +28,7 @@ Uart::Uart(uint32_t _baudrate) {
 			| (0 << 9) //0=NOFLOWCONTROL 1=FLOWCONTROL
 			| (0 << 11); //0=ASINCRONICA 1=SINCRONICA
 
-	USART0->INTENSET = (1 << 0); //CONFIGURO INTERRUPCION POR LLEGADA DE BYTE
+	USART0->INTENSET = (1 << tipoInt); //CONFIGURO INTERRUPCION POR LLEGADA DE BYTE
 
 	UART0CLKSEL = 0; //CLK = 30MHz
 	USART0->BRG = (30000000 / baudrate * 16); //CONFIG FREQ
@@ -51,12 +51,17 @@ void Uart::Transmitir(uint8_t *_buff, uint8_t _cant){
 	enviando = true;
 
 	USART0->INTENSET |= 1<<2;
+	return;
 }
 
 void Uart::UARThandlerIRQ (void){
 	uint32_t stat = USART0->INTSTAT;
 	int16_t dato;
 
+	if(stat & (1 << 0)){
+		byteRx = dir_uart->RXDAT;
+		datoNuevo = true;
+	}
 	if(stat & (1 << 2)){
 		dato = buffTx[indiceTx];
 		USART0->TXDAT = dato;
