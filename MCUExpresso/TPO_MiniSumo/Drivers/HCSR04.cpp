@@ -4,7 +4,7 @@
  *  Created on: 11 sep. 2026
  *      Author: Aiden
  */
-
+/*
 #include "HCSR04.h"
 
 static HCSR04* instancia;
@@ -78,4 +78,4 @@ void CTIMER0_IRQHandler (void)
 			CTIMER->IR = 16;
 		}
 	}
-}
+}*/

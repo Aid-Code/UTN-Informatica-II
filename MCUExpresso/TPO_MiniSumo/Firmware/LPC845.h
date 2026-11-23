@@ -299,36 +299,6 @@ typedef struct {
 #define INT_EXT                                     ((INT_EXT_Types *)INT_EXT_BASE)
 
 
-typedef struct {
-  __IO uint32_t IR;
-  __IO uint32_t TCR;
-  __IO uint32_t TC;
-  __IO uint32_t PR;
-  __IO uint32_t PC;
-  __IO uint32_t MCR;
-  __IO uint32_t MR0;
-  __IO uint32_t MR1;
-  __IO uint32_t MR2;
-  __IO uint32_t MR3;
-  __IO uint32_t CCR;
-  __IO uint32_t CR0;
-  __IO uint32_t CR1;
-  __IO uint32_t CR2;
-  __IO uint32_t CR3;
-  __IO uint32_t EMR;
-
-} CTIMER_Types;
-
-
-
-/* GPIO - Peripheral instance base addresses */
-/** Peripheral GPIO base address */
-#define CTIMER_BASE                                (0x40038000u)
-/** Peripheral GPIO base pointer */
-#define CTIMER                                     ((CTIMER_Types *)CTIMER_BASE)
-
-#define PWMC										(*((uint32_t *)0x40038074u))
-
 /*
  * Definiciones para Systick
  */
@@ -369,6 +339,20 @@ typedef struct {
 
 #define USART0_BASE		(0x040064000u)
 #define USART0      	((USARTs *)USART0_BASE)
+
+#define USART1_BASE		(0x040068000u)
+#define USART1      	((USARTs *)USART1_BASE)
+
+#define USART2_BASE		(0x04006C000u)
+#define USART2      	((USARTs *)USART2_BASE)
+
+#define USART3_BASE		(0x040070000u)
+#define USART3      	((USARTs *)USART3_BASE)
+
+#define USART4_BASE		(0x040074000u)
+#define USART4      	((USARTs *)USART4_BASE)
+
+
 
 #define PINASSIGN0		(*((uint32_t *)0x04000C000u))
 #define PINASSIGN1		(*((uint32_t *)0x04000C004u))

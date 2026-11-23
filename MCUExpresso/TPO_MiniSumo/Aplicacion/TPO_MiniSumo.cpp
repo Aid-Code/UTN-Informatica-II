@@ -20,17 +20,19 @@
 #include <Timer.h>
 #include <Uart.h>
 #include <DriverMotores.h>
+#include <Init.h>
 
 AnalogInput sens(2); //CONFIG CNY
-int val = 0; //VALOR CNY
+uint8_t val = 254; //VALOR CNY
 gpio enab (0,31, gpio::SALIDA, gpio::LOW); //CONFIGURO EL PIN HABILITADOR DEL ESP8266
-Uart esp8266 (115200,8, 9, 0); // 0 COMO RECEPCION, 2 COMO TRANSMISION
-Uart PC (115200, 24, 25, 2);
+Uart PC(0,115200,25,24);
+//Uart esp8266(0,115200,17,16);
 
 uint16_t dato = 0;
 uint8_t buff = 2;
 uint8_t buffOK[1] = {0};
-uint8_t datoPC;
+uint8_t datoPC = 'Q';
+uint8_t datoPC1 = '\n';
 gpio AIN1 (0,13, gpio::SALIDA, gpio::LOW); //cambiar pin a 9 despues
 gpio AIN2 (0,10, gpio::SALIDA, gpio::LOW);
 gpio BIN1 (0,11, gpio::SALIDA, gpio::LOW);
@@ -40,16 +42,20 @@ gpio MotorPins[] = {AIN1, AIN2, BIN1, BIN2};
 
 DriverMotores sumo(MotorPins);
 
-int main(void){/*
+int main(void){
+	Inicializar();
+	/*
 	enab.setPIN(); //HABILITO EL PIN DEL ESP8266
 while(1) {
 	val = sens.getValor(); //GET VAL CNY
     }*/
 while(1){
-	datoPC = esp8266.Recibir();
+	//datoPC = esp8266.Recibir();
 	buffOK[0] = datoPC;
 	//esp8266.Transmitir(buffOK, buff);
 	PC.Transmitir(buffOK, buff);
+	PC.Transmitir(datoPC1);
+
 }
     return 0 ;
 }
