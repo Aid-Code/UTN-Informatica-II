@@ -1,0 +1,10 @@
+"Task Aware Debugger for GDB" version 25.6.0 (202506250844)
+Copyright 2016-2025 NXP
+==================================
+<<<<<<<< Updated upstream:MCUExpresso/AzureRTOS_TAD_logs/TAD_log_261123_112659.log
+11:26:53.307 INFO: [TadModel] DSF session ID 5 has started.
+11:26:59.442 INFO: [TadModel] DSF session ID 5 has ended.
+========
+16:03:54.192 INFO: [TadModel] DSF session ID 0 has started.
+16:04:02.848 INFO: [TadModel] DSF session ID 0 has ended.
+>>>>>>>> Stashed changes:MCUExpresso/AzureRTOS_TAD_logs/TAD_log_261123_160402.log
