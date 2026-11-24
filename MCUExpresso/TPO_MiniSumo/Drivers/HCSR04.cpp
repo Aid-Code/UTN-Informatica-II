@@ -4,7 +4,7 @@
  *  Created on: 11 sep. 2026
  *      Author: Aiden
  */
-/*
+
 #include "HCSR04.h"
 
 static HCSR04* instancia;
@@ -23,6 +23,11 @@ HCSR04::HCSR04(uint8_t _pin_trig, uint8_t _port_trig, uint8_t _pin_echo, uint8_t
 	PINASSIGN14 &= ~(0xFF << 8);
 	PINASSIGN14 |= pin_habilitacion << 8;
 	SYSCON->SYSAHBCLKCTRL0 &= ~(1<<7); // Apago la Switch Matrix
+
+	// Desactivar pull-up interno en PIO0_26 (índice 22 en IOCON->PIO)
+	SYSCON->SYSAHBCLKCTRL0 |= (1 << 18);     // Habilito clock de IOCON
+	IOCON->PIO[22] &= ~IOCON_PIO_MODE_MASK;  // Bits 4:3 (MODE) = 00 (Inactivo)
+	SYSCON->SYSAHBCLKCTRL0 &= ~(1 << 18);    // Apago clock de IOCON
 
 	// Configuracion de CTIMER:
 
@@ -44,7 +49,6 @@ HCSR04::HCSR04(uint8_t _pin_trig, uint8_t _port_trig, uint8_t _pin_echo, uint8_t
 
 uint32_t HCSR04::getDistancia(void)
 {
-	distancia = ((tiempof - tiempoi)*5)/58;
 	return distancia;
 }
 
@@ -65,7 +69,7 @@ void CTIMER0_IRQHandler (void)
 
 	if (CTIMER->IR & (1<<4)) // CR0 - Rising o Falling edge del ECHO
 	{
-		if (!instancia->estado_capture) // Rising edge
+		if (instancia->estado_capture == 0) // Rising edge
 		{
 			instancia->tiempoi = CTIMER->CR0;
 			instancia->estado_capture = 1;
@@ -74,8 +78,12 @@ void CTIMER0_IRQHandler (void)
 		else // Falling edge
 		{
 			instancia->tiempof = CTIMER->CR0;
+			if (instancia->tiempof > instancia->tiempoi)
+			{
+				instancia->distancia = ((instancia->tiempof - instancia->tiempoi) * 5) / 58;
+			}
 			instancia->estado_capture = 0;
 			CTIMER->IR = 16;
 		}
 	}
-}*/
+}

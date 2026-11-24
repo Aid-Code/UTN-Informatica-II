@@ -18,21 +18,16 @@
 
 void handler (void);
 
-HCSR04 ultrasonico(27, 0, 28, 0);
+HCSR04 ultrasonico(27, 0, 26, 0);
 uint32_t dist;
-PinInt btn(0, 4, PinInt::flanco_asc, handler);
+
+volatile uint32_t veces_high = 0;
 
 int main(void)
 {
-
-	while(1)
-	{
+    while(1)
+    {
+        dist = ultrasonico.getDistancia();
     }
-
-	return 0 ;
-}
-
-void handler (void)
-{
-	dist = ultrasonico.getDistancia();
+    return 0;
 }
