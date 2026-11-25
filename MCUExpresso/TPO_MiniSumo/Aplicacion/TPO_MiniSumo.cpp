@@ -9,7 +9,7 @@
  * be bound by the applicable license terms, then you may not retain, install,
  * activate or otherwise use the software.
  */
-
+/*
 #include <cr_section_macros.h>
 #include <LPC845.h>
 #include <AnalogInput.h>
@@ -48,7 +48,7 @@ int main(void){
 	enab.setPIN(); //HABILITO EL PIN DEL ESP8266
 while(1) {
 	val = sens.getValor(); //GET VAL CNY
-    }*/
+    }
 while(1){
 	datoPC = esp8266.Recibir();
 	buffOK[0] = datoPC;
@@ -60,4 +60,4 @@ while(1){
     return 0 ;
 }
 
-
+*/

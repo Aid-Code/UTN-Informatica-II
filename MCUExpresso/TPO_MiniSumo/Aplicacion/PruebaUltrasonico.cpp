@@ -9,7 +9,7 @@
  * be bound by the applicable license terms, then you may not retain, install,
  * activate or otherwise use the software.
  */
-/*
+
 #include <cr_section_macros.h>
 #include <LPC845.h>
 #include <gpio.h>
@@ -18,22 +18,16 @@
 
 void handler (void);
 
-HCSR04 ultrasonico(27, 0, 28, 0);
+HCSR04 ultrasonico(27, 0, 26, 0);
 uint32_t dist;
-PinInt btn(0, 4, PinInt::flanco_asc, handler);
+
+volatile uint32_t veces_high = 0;
 
 int main(void)
 {
-
-	while(1)
-	{
+    while(1)
+    {
+        dist = ultrasonico.getDistancia();
     }
-
-	return 0 ;
+    return 0;
 }
-
-void handler (void)
-{
-	dist = ultrasonico.getDistancia();
-}
-*/
