@@ -1,6 +1,0 @@
-"Task Aware Debugger for GDB" version 25.6.0 (202506250844)
-Copyright 2016-2025 NXP
-==================================
-16:05:12.388 INFO: [ZephyrRTOS] .config file could not be read [Program file does not exist]
-16:05:12.389 INFO: [TadModel] DSF session ID 1 has started.
-16:05:22.538 INFO: [TadModel] DSF session ID 1 has ended.

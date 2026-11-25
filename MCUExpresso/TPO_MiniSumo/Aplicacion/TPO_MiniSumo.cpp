@@ -31,7 +31,8 @@ Uart esp8266(1,115200,17,16);
 uint16_t dato = 0;
 uint8_t buff = 2;
 uint8_t buffOK[1] = {0};
-uint8_t señalESP[6] = {"AT\r\n"};
+//uint8_t señalESP[6] = {"AT\r\n"};
+uint8_t señalESP[12] = {"AT+CIFSR\r\n"};
 uint8_t datoPC = 'Q';
 uint8_t datoPC1 = '\n';
 gpio AIN1 (0,13, gpio::SALIDA, gpio::LOW); //cambiar pin a 9 despues
@@ -47,7 +48,7 @@ int main(void){
 	Inicializar();
 
 	enab.setPIN(); //HABILITO EL PIN DEL ESP8266
-	esp8266.Transmitir(señalESP, 6);
+	esp8266.Transmitir(señalESP, 12);
 	/*
 while(1) {
 	val = sens.getValor(); //GET VAL CNY
