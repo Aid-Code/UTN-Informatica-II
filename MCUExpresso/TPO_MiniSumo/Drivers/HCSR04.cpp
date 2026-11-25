@@ -9,7 +9,8 @@
 
 static HCSR04* instancia;
 
-HCSR04::HCSR04(uint8_t _pin_trig, uint8_t _port_trig, uint8_t _pin_echo, uint8_t _port_echo):pin_trig(_pin_trig),port_trig(_port_trig),pin_echo(_pin_echo), port_echo(_port_echo), trig(port_trig, pin_trig, gpio::SALIDA)
+HCSR04::HCSR04(uint8_t _pin_trig, uint8_t _port_trig, uint8_t _pin_echo, uint8_t _port_echo)
+:pin_trig(_pin_trig),port_trig(_port_trig),pin_echo(_pin_echo), port_echo(_port_echo), trig(port_trig, pin_trig, gpio::SALIDA)
 {
 	instancia = this;
 	estado_capture = 0;
@@ -32,6 +33,7 @@ HCSR04::HCSR04(uint8_t _pin_trig, uint8_t _port_trig, uint8_t _pin_echo, uint8_t
 	// Configuracion de CTIMER:
 
 	SYSCON->SYSAHBCLKCTRL0 |= 1<<25;
+	SYSCON->PRESETCTRL0 &= ~(1<<25);
 	SYSCON->PRESETCTRL0 |= 1<<25;
 
 	CTIMER->PR = (30 * 5) - 1;

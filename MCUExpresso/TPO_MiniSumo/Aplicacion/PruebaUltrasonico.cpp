@@ -9,7 +9,7 @@
  * be bound by the applicable license terms, then you may not retain, install,
  * activate or otherwise use the software.
  */
-
+/*
 #include <cr_section_macros.h>
 #include <LPC845.h>
 #include <gpio.h>
@@ -31,3 +31,4 @@ int main(void)
     }
     return 0;
 }
+*/
