@@ -26,7 +26,7 @@ AnalogInput sens(2); //CONFIG CNY
 uint8_t val = 254; //VALOR CNY
 gpio enab (0,31, gpio::SALIDA, gpio::LOW); //CONFIGURO EL PIN HABILITADOR DEL ESP8266
 Uart PC(0,115200,25,24);
-//Uart esp8266(0,115200,17,16);
+Uart esp8266(1,115200,17,16);
 
 uint16_t dato = 0;
 uint8_t buff = 2;
@@ -50,7 +50,7 @@ while(1) {
 	val = sens.getValor(); //GET VAL CNY
     }*/
 while(1){
-	//datoPC = esp8266.Recibir();
+	datoPC = esp8266.Recibir();
 	buffOK[0] = datoPC;
 	//esp8266.Transmitir(buffOK, buff);
 	PC.Transmitir(buffOK, buff);
