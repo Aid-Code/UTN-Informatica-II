@@ -9,7 +9,7 @@
  * be bound by the applicable license terms, then you may not retain, install,
  * activate or otherwise use the software.
  */
-/*
+
 #include <cr_section_macros.h>
 #include <LPC845.h>
 #include <AnalogInput.h>
@@ -31,6 +31,7 @@ Uart esp8266(1,115200,17,16);
 uint16_t dato = 0;
 uint8_t buff = 2;
 uint8_t buffOK[1] = {0};
+uint8_t señalESP[6] = {"AT\r\n"};
 uint8_t datoPC = 'Q';
 uint8_t datoPC1 = '\n';
 gpio AIN1 (0,13, gpio::SALIDA, gpio::LOW); //cambiar pin a 9 despues
@@ -44,20 +45,25 @@ DriverMotores sumo(MotorPins);
 
 int main(void){
 	Inicializar();
-	/*
+
 	enab.setPIN(); //HABILITO EL PIN DEL ESP8266
+	esp8266.Transmitir(señalESP, 6);
+	/*
 while(1) {
 	val = sens.getValor(); //GET VAL CNY
-    }
+    }*/
 while(1){
 	datoPC = esp8266.Recibir();
 	buffOK[0] = datoPC;
 	//esp8266.Transmitir(buffOK, buff);
-	PC.Transmitir(buffOK, buff);
-	PC.Transmitir(datoPC1);
+	if(datoPC != 255){PC.Transmitir(buffOK, buff);
+	}else{
+
+	}
+	//PC.Transmitir(datoPC1);
 
 }
     return 0 ;
 }
 
-*/
+
