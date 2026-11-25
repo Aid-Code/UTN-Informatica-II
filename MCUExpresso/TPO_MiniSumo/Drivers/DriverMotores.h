@@ -25,7 +25,7 @@ public:
 	DriverMotores(uint8_t pinIn1, uint8_t portIn1, uint8_t pinIn2, uint8_t portIn2, uint8_t pinIn3, uint8_t portIn3, uint8_t pinIn4, uint8_t portIn4, uint8_t pinPwmA, uint8_t portPwmA, uint8_t pinPwmB, uint8_t portPwmB);
 
 	void setDireccion (Direcciones dir);
-	void setVelocidad(uint32_t porcentajeA, uint32_t porcentajeB);
+	void setVelocidad(uint32_t porcentajeA = 100, uint32_t porcentajeB = 100);
 };
 
 #endif /* DRIVERMOTORES_H_ */
