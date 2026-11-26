@@ -20,7 +20,7 @@
 #include <Timer.h>
 #include <Systick.h>
 
-#define UMBRAL_PISO 1000
+#define UMBRAL_PISO ((270 + 370)/2)
 #define UMBRAL_ATAQUE 3
 
 enum Estados {INICIO, ATAQUE, RETROCESO, BUSQUEDA};
@@ -31,11 +31,15 @@ volatile bool flag_retroceso = false;
 void handler_inicio(void)    { flag_inicio = true; }
 void handler_retroceso(void) { flag_retroceso = true; }
 
+Estados estado = INICIO;
+
+uint32_t lecturas[] = {0, 0};
+
 int main(void)
 {
 	HCSR04 ultrasonico(27, 0, 26, 0);
 	AnalogInput qtr (2);
-	DriverMotores driver(6, 0, 1, 0, 20, 0, 19, 0, 0, 0, 18, 0);
+	DriverMotores driver(1, 0, 6, 0, 20, 0, 19, 0, 0, 0, 18, 0);
 
 	Timer timer_inicio(50000, handler_inicio);      // 5 segundos
 	Timer timer_retroceso(5000, handler_retroceso); // 500 ms
@@ -44,9 +48,7 @@ int main(void)
 	timer_retroceso.stop();
 	InitSystick();
 
-	Estados estado = INICIO;
 
-	uint32_t lecturas[] = {0, 0};
 
 	driver.setVelocidad(0, 0);
 	timer_inicio.start();
