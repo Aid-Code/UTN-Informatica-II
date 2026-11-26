@@ -9,7 +9,7 @@
  * be bound by the applicable license terms, then you may not retain, install,
  * activate or otherwise use the software.
  */
-/*
+
 #include <cr_section_macros.h>
 #include <LPC845.h>
 #include <gpio.h>
@@ -19,38 +19,52 @@
 #include <Uart.h>
 #include <Init.h>
 
-gpio enab (0,31, gpio::SALIDA, gpio::LOW); //CONFIGURO EL PIN HABILITADOR DEL ESP8266
 Uart PC(0,115200,25,24);
-Uart esp8266(1,115200,17,16);
+Uart esp(1,115200,17,16);
 
-uint16_t dato = 0;
-uint8_t buff = 2;
-uint8_t buffOK[1] = {0};
-//uint8_t señalESP[6] = {"AT\r\n"};
-uint8_t señalESP[12] = {"AT+CIFSR\r\n"};
-uint8_t datoPC = 'Q';
-uint8_t datoPC1 = '\n';
+struct __attribute__((packed)) Trama
+{
+    uint8_t inicio = 0xAA;
+    uint8_t estado;
+    uint32_t dato1;
+    uint32_t dato2;
+    uint8_t fin = 0x55;
+};
 
 int main(void)
 {
 	Inicializar();
 
-	enab.setPIN(); //HABILITO EL PIN DEL ESP8266
-	esp8266.Transmitir(señalESP, 12);
+	esp.Transmitir(señalESP, 12);
 
 	while(1)
 	{
-		datoPC = esp8266.Recibir();
-		buffOK[0] = datoPC;
-		//esp8266.Transmitir(buffOK, buff);
-		if(datoPC != 255){PC.Transmitir(buffOK, buff);
-		}else{
-
-		}
-		//PC.Transmitir(datoPC1);
 
 	}
-    return 0 ;
+    return 0;
 }
-*/
+
+void enviar_uint32(Uart &uart, uint32_t num)
+{
+    if (num == 0) uart.Transmitir('0');
+
+    char digitos[10];
+    uint8_t i = 0;
+    while (num > 0)
+    {
+        digitos[i++] = (num % 10) + '0';
+        num /= 10;
+    }
+    while (i > 0) uart.Transmitir((uint8_t)digitos[--i]);
+}
+
+void enviar_datos(Uart &esp, uint8_t estado, uint32_t d1, uint32_t d2)
+{
+	enviar_uint32(esp, estado);
+    esp.Transmitir(',');
+    enviar_uint32(esp, d1);
+    esp.Transmitir(',');
+    enviar_uint32(esp, d2);
+    esp.Transmitir('\n');
+}
 
