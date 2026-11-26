@@ -1,96 +1,186 @@
 /*
  * Uart.cpp
  *
- *  Created on: 11 sep. 2026
- *      Author: Franko Dona
+ *  Created on: 10 sep. 2023
+ *      Author: chor
  */
 
 #include <Uart.h>
 
-Uart * h;
+Uart *uarts[4] = {nullptr,nullptr,nullptr,nullptr};
 
-Uart::Uart(uint32_t _baudrate, uint16_t _trans, uint16_t _rec, uint8_t tipoInt) {
-	baudrate = _baudrate;
-	SYSCON->SYSAHBCLKCTRL0 |= (1 << 14); //Habilito el CLK del periférico
+Uart::Uart( uint8_t numUart , uint32_t baudR , uint8_t pinTx , uint8_t pinRx ):bufTx(30),bufRx(30)
+{
+	n_uart = numUart;
+	uarts[n_uart] = this;
 
-	SYSCON->PRESETCTRL0 &= ~(1<<14);
-	SYSCON->PRESETCTRL0 |= (1<<14);
+	baudrate = baudR;
 
+	// HABILITO LA UART:
+	uint8_t shift = 14 + n_uart;
+	SYSCON->SYSAHBCLKCTRL0 |= (1 << shift);
+
+	//Reseteo la UART:
+	SYSCON->PRESETCTRL0 &= ~(1<<shift);
+	SYSCON->PRESETCTRL0 |= (1<<shift);
+
+	//Habilito el CLK a la SWM:
 	SYSCON->SYSAHBCLKCTRL0 |= (1<<7);
 
-	PINASSIGN0 &= ~(0x0000FFFFF);
-	PINASSIGN0 = (_trans << 0) | (_rec << 8); //Configuro el pin P0.25 para la transmisión y el P0.24 para la recepción del puerto serie
+	switch ( n_uart)
+	{
+		case 0:
+			// CONFIGURO LA SWITCH MATRIX
+			PINASSIGN0 &= ~(0x0000FFFF);
+			PINASSIGN0 |= (pinTx << 0) | (pinRx << 8);
+			//Seteo la direccion de la uart a configurar
+			dir_uart = USART0;
+			break;
+		case 1:
+			// CONFIGURO LA SWITCH MATRIX
+			PINASSIGN1 &= ~(0x00FFFF00);
+			PINASSIGN1 |= (pinTx << 8) | (pinRx << 16);
+			//Seteo la direccion de la uart a configurar
+			dir_uart = USART1;
+			break;
+		case 2:
+			// CONFIGURO LA SWITCH MATRIX
+			PINASSIGN2 &= ~(0xFFFF0000);
+			PINASSIGN2 |= (pinTx << 16) | (pinRx << 24);
+			//Seteo la direccion de la uart a configurar
+			dir_uart = USART2;
+			break;
 
-	USART0->CFG = (0 << 0) //0 DISABLE 1 ENABLE
-			| (1 << 2) //0=7 BITS 1=8 BITS 2=9 BITS
-			| (0 << 4) //0=NO PARITY 2=PAR 3=IMPAR
-			| (0 << 6) //0=1BITSTOP 1=2BITSTOP
-			| (0 << 9) //0=NOFLOWCONTROL 1=FLOWCONTROL
-			| (0 << 11); //0=ASINCRONICA 1=SINCRONICA
+		case 3:
+			// CONFIGURO LA SWITCH MATRIX
+			PINASSIGN11 &= ~(0xFF000000);
+			PINASSIGN12 &= ~(0x000000FF);
+			PINASSIGN11 |= (pinTx << 24);
+			PINASSIGN12 |= pinRx;
+			//Seteo la direccion de la uart a configurar
+			dir_uart = USART3;
+			break;
+	}
 
-	USART0->INTENSET = (1 << tipoInt); //CONFIGURO INTERRUPCION POR LLEGADA DE BYTE
+	// CONFIGURACION GENERAL
+	dir_uart->CFG = 	(0 << 0)		// 0=DISABLE 1=ENABLE
+						| (1 << 2)		// 0=7BITS 1=8BITS 2=9BITS
+						| (0 << 4)		// 0=NOPARITY 2=PAR 3=IMPAR
+						| (0 << 6)		// 0=1BITSTOP 1=2BITSTOP
+						| (0 << 9)		// 0=NOFLOWCONTROL 1=FLOWCONTROL
+						| (0 << 11);	// 0=ASINCRONICA 1=SINCRONICA
 
-	UART0CLKSEL = 0; //CLK = 30MHz
-	USART0->BRG = (30000000 / baudrate * 16); //CONFIG FREQ
+	// CONFIGURACION INTERRUPCIONES
+	dir_uart->INTENSET = (1 << 0);	//RX
 
-	ISER0 |= (1 << 3); //NVIC INTERRUPCION
+	// CONFIGURACION DEL BAUDRATE
+	//CLK = FRO = 30MHz
+	if ( n_uart == 0 )
+		UART0CLKSEL = 0;
+	else if ( n_uart == 1 )
+		UART1CLKSEL = 0;
+	else if ( n_uart == 2 )
+		UART2CLKSEL = 0;
+	else if ( n_uart == 3 )
+		UART3CLKSEL = 0;
 
-	USART0->CFG |= 1; //HABILITO UART
+	dir_uart->BRG = (30000000 / (baudrate* 16));
 
-	h = this;
+	//Habilito interrupcion USART0 en el NVIC
+	shift = 3 + n_uart;
+	ISER0 |= (1 << shift);
+
+	// ENABLE LA UART
+	dir_uart->CFG |= 1;
 }
 
-void Uart::Transmitir(uint8_t *_buff, uint8_t _cant){
-	int i = 0;
-	buffTx = new uint16_t [_cant];
-	for(i=0; i < _cant; i++) buffTx[i] = _buff[i];
+uint32_t Uart::getBaudR()
+{
+	return baudrate;
 
-	cantBytes = i;
-	indiceTx = 0;
-
-	enviando = true;
-
-	USART0->INTENSET |= 1<<2;
-	return;
 }
 
-void Uart::UARThandlerIRQ (void){
-	uint32_t stat = USART0->INTSTAT;
+void Uart::setBaudR ( uint32_t br)
+{
+	baudrate = br;
+	//Reconfiguro Baudrate
+	dir_uart->BRG = (30000000 / (baudrate* 16));
+}
+
+void Uart::Transmitir ( uint8_t dato )
+{
+
+	//Agrego el dato al buffer circular:
+	bufTx.push(dato);
+	//Transmito el dato por interrupción
+	dir_uart->INTENSET |= 1<<2;
+}
+
+void Uart::Transmitir ( uint8_t *buf , uint8_t cant )
+{
+
+	for ( int i = 0 ; i < cant ; i++ )
+		//Agrego el dato al buffer circular:
+		bufTx.push(buf[i]);
+
+	//Transmito el dato por interrupción
+	dir_uart->INTENSET |= 1<<2;
+}
+
+
+int16_t Uart::Recibir ()
+{
+		return ( bufRx.pop() );
+}
+
+
+void Uart::handlerIRQ ( void )
+{
+	uint32_t stat = dir_uart->INTSTAT;
 	int16_t dato;
 
-	if(stat & (1 << 0)){
-		byteRx = dir_uart->RXDAT;
-		datoNuevo = true;
+    // CASO RECEPCION
+	if(stat & (1 << 0))
+	{
+		bufRx.push(dir_uart->RXDAT);
 	}
-	if(stat & (1 << 2)){
-		dato = buffTx[indiceTx];
-		USART0->TXDAT = dato;
-		indiceTx++;
 
-		if (indiceTx == cantBytes){
-			indiceTx = 0;
-			USART0->INTENCLR |= 1<<2;
-			enviando = false;
-		}
+	//CASO TRANSMISION
+	else if(stat & (1 << 2))
+	{
+		dato = bufTx.pop();
+		if ( dato != (bufferCirc::NO_DATA) )
+			dir_uart->TXDAT = dato;
+		else
+			dir_uart->INTENCLR |= 1<<2;
 	}
+
+	//CASO ERRORES
+	else
+	{
+
+	}
+
 }
 
-void UART0_IRQHandler (void){
-	h->UARThandlerIRQ();
+//Funciones de interrupcion:
+void UART0_IRQHandler (void)
+{
+	uarts[0]->handlerIRQ();
 }
 
-int16_t Uart::Recibir(void){
-	int16_t ret = Uart::NO_DATA;
-
-		if(datoNuevo==1)
-		{
-			datoNuevo = false;
-			ret = byteRx;
-			return ret;
-		}
-		if(byteRx==Uart::NO_DATA) return -1;
-		else{ return -255;}
+void UART1_IRQHandler (void)
+{
+	uarts[1]->handlerIRQ();
 }
 
+void UART2_IRQHandler (void)
+{
+	uarts[2]->handlerIRQ();
+}
 
+void UART3_IRQHandler (void)
+{
+	uarts[3]->handlerIRQ();
+}
 

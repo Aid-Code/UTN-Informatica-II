@@ -12,46 +12,102 @@
 
 #include <cr_section_macros.h>
 #include <LPC845.h>
-#include <AnalogInput.h>
 #include <gpio.h>
 #include <HCSR04.h>
-#include <PerifericoTemporizado.h>
-#include <PinInt.h>
-#include <Timer.h>
-#include <Uart.h>
+#include <AnalogInput.h>
 #include <DriverMotores.h>
+#include <Uart.h>
+#include <Timer.h>
+#include <Systick.h>
 
-AnalogInput sens(2); //CONFIG CNY
-int val = 0; //VALOR CNY
-gpio enab (0,31, gpio::SALIDA, gpio::LOW); //CONFIGURO EL PIN HABILITADOR DEL ESP8266
-Uart esp8266 (115200,8, 9, 0); // 0 COMO RECEPCION, 2 COMO TRANSMISION
-Uart PC (115200, 24, 25, 2);
+#define UMBRAL_PISO 1000
+#define UMBRAL_ATAQUE 3
 
-uint16_t dato = 0;
-uint8_t buff = 2;
-uint8_t buffOK[1] = {0};
-uint8_t datoPC;
-gpio AIN1 (0,13, gpio::SALIDA, gpio::LOW); //cambiar pin a 9 despues
-gpio AIN2 (0,10, gpio::SALIDA, gpio::LOW);
-gpio BIN1 (0,11, gpio::SALIDA, gpio::LOW);
-gpio BIN2 (0,12, gpio::SALIDA, gpio::LOW);
+enum Estados {INICIO, ATAQUE, RETROCESO, BUSQUEDA};
 
-gpio MotorPins[] = {AIN1, AIN2, BIN1, BIN2};
+volatile bool flag_inicio = false;
+volatile bool flag_retroceso = false;
 
-DriverMotores sumo(MotorPins);
+void handler_inicio(void)    { flag_inicio = true; }
+void handler_retroceso(void) { flag_retroceso = true; }
 
-int main(void){/*
-	enab.setPIN(); //HABILITO EL PIN DEL ESP8266
-while(1) {
-	val = sens.getValor(); //GET VAL CNY
-    }*/
-while(1){
-	datoPC = esp8266.Recibir();
-	buffOK[0] = datoPC;
-	//esp8266.Transmitir(buffOK, buff);
-	PC.Transmitir(buffOK, buff);
+int main(void)
+{
+	HCSR04 ultrasonico(27, 0, 26, 0);
+	AnalogInput qtr (2);
+	DriverMotores driver(6, 0, 1, 0, 20, 0, 19, 0, 0, 0, 18, 0);
+
+	Timer timer_inicio(50000, handler_inicio);      // 5 segundos
+	Timer timer_retroceso(5000, handler_retroceso); // 500 ms
+
+	timer_inicio.stop();
+	timer_retroceso.stop();
+	InitSystick();
+
+	Estados estado = INICIO;
+
+	uint32_t lecturas[] = {0, 0};
+
+	driver.setVelocidad(0, 0);
+	timer_inicio.start();
+
+	while(1)
+    {
+		lecturas[0] = ultrasonico.getDistancia();
+		lecturas[1] = qtr.getValor();
+
+    	switch (estado)
+		{
+			case INICIO:
+				if (flag_inicio)
+				{
+					flag_inicio = false;
+					estado = BUSQUEDA;
+				}
+			break;
+
+			case ATAQUE:
+				driver.setVelocidad();
+				driver.setDireccion(DriverMotores::ADELANTE);
+
+				if (lecturas[1] <= UMBRAL_PISO)
+				{
+					flag_retroceso = false;
+					timer_retroceso.start();
+					estado = RETROCESO;
+				}
+				else if (lecturas[0] > UMBRAL_ATAQUE)
+				{
+					estado = BUSQUEDA;
+				}
+			break;
+
+			case BUSQUEDA:
+				driver.setVelocidad(50, 50);
+				driver.setDireccion(DriverMotores::DERECHA);
+
+				if (lecturas[1] <= UMBRAL_PISO)
+				{
+					flag_retroceso = false;
+					timer_retroceso.start();
+					estado = RETROCESO;
+				}
+				else if (lecturas[0] != 0 && lecturas[0] <= UMBRAL_ATAQUE)
+				{
+					estado = ATAQUE;
+				}
+			break;
+
+			case RETROCESO:
+				driver.setVelocidad();
+				driver.setDireccion(DriverMotores::ATRAS);
+				if (flag_retroceso)
+				{
+					flag_retroceso = false;
+					estado = BUSQUEDA;
+				}
+			break;
+		}
+    }
+    return 0;
 }
-    return 0 ;
-}
-
-
