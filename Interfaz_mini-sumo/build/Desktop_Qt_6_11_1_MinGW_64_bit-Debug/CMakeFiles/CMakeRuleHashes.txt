@@ -1,0 +1,5 @@
+# Hashes of file build rules.
+6afdf0a570dfa36a54d6341b79b5cd60 .qt/rcc/qrc_imagenes.cpp
+d2fbb422ce0d5d09999ebbf9e8ee4520 CMakeFiles/Interfaz_mini-sumo_autogen
+95876520e844507251bf7a437b467a59 Interfaz_mini-sumo_autogen/EWIEGA46WW/qrc_recursos.cpp
+b48f7eda1beb3e75a1dca6863765ddcb Interfaz_mini-sumo_autogen/timestamp

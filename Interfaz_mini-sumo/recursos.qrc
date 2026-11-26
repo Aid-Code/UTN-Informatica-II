@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>atacando.png</file>
+        <file>borde.png</file>
+        <file>buscando.png</file>
+    </qresource>
+</RCC>
