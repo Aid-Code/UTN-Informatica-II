@@ -1,0 +1,3 @@
+C:\Qt\Tools\CMake_64\bin\cmake.exe -E rm -f CMakeFiles\Interfaz_mini-sumo.dir/objects.a
+C:\Qt\Tools\mingw1310_64\bin\ar.exe qc CMakeFiles\Interfaz_mini-sumo.dir/objects.a @CMakeFiles\Interfaz_mini-sumo.dir\objects1.rsp
+C:\Qt\Tools\mingw1310_64\bin\g++.exe -g -mwindows -Wl,--whole-archive CMakeFiles\Interfaz_mini-sumo.dir/objects.a -Wl,--no-whole-archive -o Interfaz_mini-sumo.exe -Wl,--out-implib,libInterfaz_mini-sumo.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Interfaz_mini-sumo.dir\linkLibs.rsp

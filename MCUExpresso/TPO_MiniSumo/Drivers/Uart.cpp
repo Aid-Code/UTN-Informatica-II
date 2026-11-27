@@ -9,7 +9,7 @@
 
 Uart *uarts[4] = {nullptr,nullptr,nullptr,nullptr};
 
-Uart::Uart( uint8_t numUart , uint32_t baudR , uint8_t pinTx , uint8_t pinRx ):bufTx(30),bufRx(30)
+Uart::Uart( uint8_t numUart , uint32_t baudR , uint8_t pinTx , uint8_t pinRx ):bufTx(64),bufRx(64)
 {
 	n_uart = numUart;
 	uarts[n_uart] = this;
@@ -84,7 +84,7 @@ Uart::Uart( uint8_t numUart , uint32_t baudR , uint8_t pinTx , uint8_t pinRx ):b
 	else if ( n_uart == 3 )
 		UART3CLKSEL = 0;
 
-	dir_uart->BRG = (30000000 / (baudrate* 16));
+	dir_uart->BRG = (30000000 / (baudrate* 16)) - 1;
 
 	//Habilito interrupcion USART0 en el NVIC
 	shift = 3 + n_uart;

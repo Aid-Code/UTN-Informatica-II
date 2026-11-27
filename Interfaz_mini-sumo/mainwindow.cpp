@@ -21,19 +21,19 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     QGroupBox *grupoSensores = new QGroupBox("Lectura de Sensores", this);
     QVBoxLayout *layoutSensores = new QVBoxLayout(grupoSensores);
 
-    // Sensor CNY70 (Analógico 0 - 1023 en ESP8266)
-    lblCnyValor = new QLabel("CNY Suelo (Analógico): 0", this);
-    lblCnyValor->setStyleSheet("font-size: 16px; font-weight: bold;");
-    barCny = new QProgressBar(this);
-    barCny->setRange(0, 1023);
-    barCny->setValue(0);
+    // Sensor qtr70 (Analógico 0 - 1023 en ESP8266)
+    lblQtrValor = new QLabel("QTR Suelo (Analógico): 0", this);
+    lblQtrValor->setStyleSheet("font-size: 16px; font-weight: bold;");
+    barQtr = new QProgressBar(this);
+    barQtr->setRange(0, 4095);
+    barQtr->setValue(0);
 
     // Sensor Ultrasónico (cm)
     lblDistanciaValor = new QLabel("Distancia Ultrasónico: -- cm", this);
     lblDistanciaValor->setStyleSheet("font-size: 16px; font-weight: bold; margin-top: 10px;");
 
-    layoutSensores->addWidget(lblCnyValor);
-    layoutSensores->addWidget(barCny);
+    layoutSensores->addWidget(lblQtrValor);
+    layoutSensores->addWidget(barQtr);
     layoutSensores->addWidget(lblDistanciaValor);
 
     // --- Sección de Estado e Imagen ---
@@ -76,8 +76,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
 MainWindow::~MainWindow() {}
 void MainWindow::activarModoSinSenal() {
-    lblCnyValor->setText("CNY Suelo (Analógico): --");
-    barCny->setValue(0);
+    lblQtrValor->setText("QTR Suelo (Analógico): --");
+    barQtr->setValue(0);
     lblDistanciaValor->setText("Distancia Ultrasónico: -- cm");
 
     estadoDemoActual = 0;
@@ -105,12 +105,12 @@ void MainWindow::leerTelemetriaUDP() {
             }
             timerTimeout->start(2000);
 
-            int cny = datos[0].toInt();
+            int qtr = datos[0].toInt();
             float distancia = datos[1].toFloat();
             int estado = datos[2].toInt();
 
-            lblCnyValor->setText(QString("CNY Suelo (Analógico): %1").arg(cny));
-            barCny->setValue(qBound(0, cny, 1023));
+            lblQtrValor->setText(QString("QTR Suelo (Analógico): %1").arg(qtr));
+            barQtr->setValue(qBound(0, qtr, 1023));
             lblDistanciaValor->setText(QString("Distancia Ultrasónico: %1 cm").arg(distancia, 0, 'f', 1));
 
             actualizarEstadoVisual(estado, false);
@@ -122,10 +122,10 @@ void MainWindow::actualizarEstadoVisual(int estado, bool sinSenal) {
     QPixmap imagenActual;
 
     switch (estado) {
-    case 0:
+    case 3:
         imagenActual = imgBuscando;
         if (!sinSenal) {
-            lblEstadoTexto->setText("ESTADO 0: BUSCANDO RIVAL");
+            lblEstadoTexto->setText("BUSCANDO RIVAL");
             lblEstadoTexto->setStyleSheet("font-size: 18px; font-weight: bold; padding: 6px; background-color: #1976D2; color: white; border-radius: 5px;");
         }
         break;
@@ -133,7 +133,7 @@ void MainWindow::actualizarEstadoVisual(int estado, bool sinSenal) {
     case 1:
         imagenActual = imgAtacando;
         if (!sinSenal) {
-            lblEstadoTexto->setText("ESTADO 1: ¡ATACANDO!");
+            lblEstadoTexto->setText("¡ATACANDO!");
             lblEstadoTexto->setStyleSheet("font-size: 18px; font-weight: bold; padding: 6px; background-color: #D32F2F; color: white; border-radius: 5px;");
         }
         break;
@@ -141,7 +141,7 @@ void MainWindow::actualizarEstadoVisual(int estado, bool sinSenal) {
     case 2:
         imagenActual = imgBorde;
         if (!sinSenal) {
-            lblEstadoTexto->setText("ESTADO 2: BORDE DEL DOHYO");
+            lblEstadoTexto->setText("BORDE DEL TATAMI");
             lblEstadoTexto->setStyleSheet("font-size: 18px; font-weight: bold; padding: 6px; background-color: #F57C00; color: white; border-radius: 5px;");
         }
         break;

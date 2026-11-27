@@ -9,7 +9,7 @@
  * be bound by the applicable license terms, then you may not retain, install,
  * activate or otherwise use the software.
  */
-
+/*
 #include <cr_section_macros.h>
 #include <LPC845.h>
 #include <gpio.h>
@@ -35,7 +35,7 @@ int main(void)
 {
 	Inicializar();
 
-	esp.Transmitir(señalESP, 12);
+	esp.Transmitir(senalESP, 12);
 
 	while(1)
 	{
@@ -67,4 +67,4 @@ void enviar_datos(Uart &esp, uint8_t estado, uint32_t d1, uint32_t d2)
     enviar_uint32(esp, d2);
     esp.Transmitir('\n');
 }
-
+*/

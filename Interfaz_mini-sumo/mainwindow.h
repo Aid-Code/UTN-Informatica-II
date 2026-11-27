@@ -29,8 +29,8 @@ private:
     int estadoDemoActual = 0;
 
     // Elementos de la interfaz
-    QLabel *lblCnyValor;
-    QProgressBar *barCny;
+    QLabel *lblQtrValor;
+    QProgressBar *barQtr;
     QLabel *lblDistanciaValor;
     QLabel *lblEstadoTexto;
     QLabel *lblImagenEstado;

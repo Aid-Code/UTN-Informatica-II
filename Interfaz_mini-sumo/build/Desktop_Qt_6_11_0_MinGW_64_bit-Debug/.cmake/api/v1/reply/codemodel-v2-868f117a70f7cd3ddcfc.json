@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-b4021dabab7a7127fa90.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Interfaz_mini-sumo",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Interfaz_mini-sumo::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Interfaz_mini-sumo-Debug-33b6a8717ff0bbbc8d53.json",
+					"name" : "Interfaz_mini-sumo",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Interfaz_mini-sumo_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Interfaz_mini-sumo_autogen-Debug-fe4f400371354abfd833.json",
+					"name" : "Interfaz_mini-sumo_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Interfaz_mini-sumo_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Interfaz_mini-sumo_autogen_timestamp_deps-Debug-ab8d6814e254e5c86538.json",
+					"name" : "Interfaz_mini-sumo_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/abril/OneDrive/Documentos/GitHub/UTN-Informatica-II/Interfaz_mini-sumo/build/Desktop_Qt_6_11_0_MinGW_64_bit-Debug",
+		"source" : "C:/Users/abril/OneDrive/Documentos/GitHub/UTN-Informatica-II/Interfaz_mini-sumo"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
